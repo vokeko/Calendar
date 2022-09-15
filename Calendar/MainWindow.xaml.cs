@@ -51,15 +51,18 @@ namespace Calendar
 
         private void BtnShowAll_Click(object sender, RoutedEventArgs e)
         {
+
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             dispatcherTimer_Tick(sender, e);
+            EventList.LoadData();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            EventList.SaveData();
         }
     }
 }
