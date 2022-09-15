@@ -34,7 +34,32 @@ namespace Calendar
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
             lblTime.Content = DateTime.Now.ToString();
-            lblDay.Content = DateTime.Now.ToString("dddd", CultureInfo.CurrentCulture);
+            lblDay.Content = DateTime.Now.ToString("dddd", CultureInfo.CurrentCulture).FirstCharToUpper();
+        }
+
+        private void BtnAdd_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void BtnEdit_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void BtnRemove_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void BtnShowAll_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            dispatcherTimer_Tick(sender, e);
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
         }
     }
 }

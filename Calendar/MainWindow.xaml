@@ -20,10 +20,10 @@
         <Label x:Name="lblTime" Grid.Row="0" Content="1.1.2020 12:00" HorizontalContentAlignment="Center" FontSize="20"/>
         <Label x:Name="lblDay" Grid.Row="1" Content="Pondělí" HorizontalContentAlignment="Center" FontSize="15"/>
         <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,4">
-            <Button x:Name="btnAdd" Content="+" Width="20" Margin="2,0,2,0" ToolTip="Přidat událost" Click="btnAdd_Click"/>
-            <Button x:Name="btnEdit" Content="x" Width="20" Margin="0,0,2,0" ToolTip="Upravit událost" Click="btnEdit_Click"/>
-            <Button x:Name="btnRemove" Content="-" Width="20" Margin="0,0,10,0" ToolTip="Odstranit událost" Click="btnRemove_Click"/>
-            <Button x:Name="btnShowAll" Content="o" Width="20" Margin="0,0,2,0" ToolTip="Zobrazit události" Click="btnShowAll_Click"/>
+            <Button x:Name="btnAdd" Content="+" Width="20" Margin="2,0,2,0" ToolTip="Přidat událost" Click="BtnAdd_Click"/>
+            <Button x:Name="btnEdit" Content="x" Width="20" Margin="0,0,2,0" ToolTip="Upravit událost" Click="BtnEdit_Click"/>
+            <Button x:Name="btnRemove" Content="-" Width="20" Margin="0,0,10,0" ToolTip="Odstranit událost" Click="BtnRemove_Click"/>
+            <Button x:Name="btnShowAll" Content="o" Width="20" Margin="0,0,2,0" ToolTip="Zobrazit události" Click="BtnShowAll_Click"/>
         </StackPanel>
     </Grid>
 </Window>
