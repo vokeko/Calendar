@@ -43,20 +43,51 @@ namespace Calendar
             {
                 Title = "Nová událost";
                 Activate();
-                Owner = this;
             }
+            //form.Owner = Application.Current.MainWindow;
 
             if (!form.ShowDialog().GetValueOrDefault()) return;
 
             EventList.Events.Add(form.Value);
+
+            MessageBox.Show("Událost úspěšně přidána");
         }
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
+            ChooseEvent formC = new ChooseEvent();
+            {
+                Title = "Edit události";
+                Activate();
+            }
+
+            if (!formC.ShowDialog().GetValueOrDefault()) return;
+
+
+            NewEvent form = new NewEvent(formC.Value);
+            {
+                Title = "Edit události";
+                Activate();
+            }
+
+            if (!form.ShowDialog().GetValueOrDefault()) return;
+
+            MessageBox.Show("Událost úspěšně upravena");
         }
 
         private void BtnRemove_Click(object sender, RoutedEventArgs e)
         {
+            ChooseEvent formC = new ChooseEvent();
+            {
+                Title = "Edit události";
+                Activate();
+            }
+
+            if (!formC.ShowDialog().GetValueOrDefault()) return;
+
+            EventList.Events.Remove(formC.Value);
+
+            MessageBox.Show("Událost úspěšně vymazána");
         }
 
         private void BtnShowAll_Click(object sender, RoutedEventArgs e)

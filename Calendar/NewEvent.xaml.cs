@@ -40,7 +40,7 @@ namespace Calendar
 
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
-            if (!kontrola()) return;
+            if (!Kontrola()) return;
 
             if (Value == null)
                 this.Value = new Event(txtName.Text, txtDesc.Text, DateTime.Now, chbRepeat.IsChecked.Value);
@@ -52,7 +52,7 @@ namespace Calendar
             this.Close();
         }
 
-        private bool kontrola()
+        private bool Kontrola()
         {
             StringBuilder errors = new StringBuilder();
             if (Value == null)
