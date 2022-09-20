@@ -32,6 +32,7 @@ namespace Calendar
                         }
                     }
                 }
+                DiscardOldEvents();
                 return true;
             }
             catch
@@ -55,6 +56,18 @@ namespace Calendar
             {
                 return false;
             }
+        }
+        private static void DiscardOldEvents()
+        {
+            List<Event> oldEvents = Events.Where(x => x.Date < DateTime.Today).ToList();
+            List<Event> newEvents = new List<Event>();
+            foreach (Event oldEvent in oldEvents)
+            {
+                Events.Remove(oldEvent);
+                if (oldEvent.Repeat)
+                    Events.Add(new Event(oldEvent.Name, oldEvent.Description, oldEvent.Date.AddYears(1), true));
+            }
+            Events = Events.Where(x => x.Date >= DateTime.Today).OrderBy(x => x.Date).ToList();
         }
     }
 }

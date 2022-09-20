@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calendar"
         mc:Ignorable="d"
-        Title="Nová událost" Height="220" Width="450" MinHeight="220" MinWidth="200">
+        Title="Nová událost" Height="240" Width="450" MinHeight="240" MinWidth="200">
     <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -19,22 +19,34 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="20"/>
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <Label Grid.Row="0" Grid.Column="0" Content="Název"/>
-                <TextBox Grid.Row="0" Grid.Column="1" x:Name="txtName" Text="Nová událost" VerticalContentAlignment="Center" Margin="0,2"/>
+                <TextBox Grid.Row="0" Grid.Column="1" x:Name="txtName" Text="Nová událost" VerticalContentAlignment="Center" Margin="0,2" Grid.ColumnSpan="2"/>
 
                 <Label Grid.Row="1" Grid.Column="0" Content="Datum"/>
-                <DatePickerTextBox Grid.Row="1" Grid.Column="1" x:Name="txtDate" VerticalContentAlignment="Center" Margin="0,2"/>
+                <DatePicker Grid.Row="1" Grid.Column="1" x:Name="dtPicker" VerticalContentAlignment="Center" Margin="0,2" Grid.ColumnSpan="2">
+                    <DatePicker.Resources>
+                        <Style TargetType="DatePickerTextBox">
+                            <Setter Property="IsReadOnly" Value="True"/>
+                        </Style>
+                    </DatePicker.Resources>
+                </DatePicker>
 
                 <Label Grid.Row="2" Grid.Column="0" Content="Popis"/>
-                <TextBox Grid.Row="2" Grid.Column="1" x:Name="txtDesc" VerticalContentAlignment="Center" Margin="0,2"/>
+                <TextBox Grid.Row="2" Grid.Column="1" x:Name="txtDesc" VerticalContentAlignment="Center" Margin="0,2" Grid.ColumnSpan="2"/>
 
-                <Label Grid.Row="3" Grid.Column="0" Content="Opakovat?"/>
-                <CheckBox Grid.Row="3" Grid.Column="1" Margin="2,5" x:Name="chbRepeat"/>
+                <Label Grid.Row="3" Grid.Column="0" Content="Čas"/>
+                <TextBox Grid.Row="3" Grid.Column="1" x:Name="txtHour" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,2" Width="20" Text="0" MaxLength="2"/>
+                <TextBox Grid.Row="3" Grid.Column="2" x:Name="txtMin" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="2,2" Width="20" HorizontalAlignment="Left" Text="0" MaxLength="2"/>
+
+                <Label Grid.Row="4" Grid.Column="0" Content="Opakovat?"/>
+                <CheckBox Grid.Row="4" Grid.Column="1" Margin="2,5" x:Name="chbRepeat"/>
             </Grid>
         </GroupBox>
         <Button Grid.Row="2" Content="Potvrdit" x:Name="btnOK" HorizontalAlignment="Right" Width="80" Height="30" Click="BtnConfirm_Click" />
