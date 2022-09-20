@@ -26,10 +26,6 @@ namespace Calendar
         {
             InitializeComponent();
 
-            foreach (Event oneEvent in EventList.Events)
-            {
-                lstEvents.Items.Add(oneEvent.Name);
-            }
             lstEvents.SelectedIndex = 0;
         }
 
@@ -37,10 +33,13 @@ namespace Calendar
         {
             if (lstEvents.SelectedIndex < 0) lstEvents.SelectedIndex = 0;
 
-            txtName.Text = EventList.Events[lstEvents.SelectedIndex].Name;
-            txtDesc.Text = EventList.Events[lstEvents.SelectedIndex].Description;
-            txtDate.Text = EventList.Events[lstEvents.SelectedIndex].Date.ToString();
-            chbRepeat.IsChecked = EventList.Events[lstEvents.SelectedIndex].Repeat;
+            if (lstEvents.SelectedItem is Event selected)
+            {
+                txtName.Text = selected.Name;
+                txtDesc.Text = selected.Description;
+                txtDate.Text = selected.Date.ToString();
+                chbRepeat.IsChecked = selected.Repeat;
+            }
         }
 
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
