@@ -5,25 +5,56 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calendar"
         mc:Ignorable="d"
-        Title="Kalendář" Height="150" Width="300" MinHeight="130" MinWidth="200" Loaded="Window_Loaded" Closing="Window_Closing">
+        Title="Kalendář" Height="240" Width="300" MinHeight="200" MinWidth="220" Loaded="Window_Loaded" Closing="Window_Closing">
     <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
+            <RowDefinition Height="10"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Label x:Name="lblTime" Grid.Row="0" Content="1.1.2020 12:00" HorizontalContentAlignment="Center" FontSize="20"/>
-        <Label x:Name="lblDay" Grid.Row="1" Content="Pondělí" HorizontalContentAlignment="Center" FontSize="15"/>
-        <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,4">
-            <Button x:Name="btnAdd" Content="+" Width="20" Margin="2,0,2,0" ToolTip="Přidat událost" Click="BtnAdd_Click"/>
-            <Button x:Name="btnEdit" Content="x" Width="20" Margin="0,0,2,0" ToolTip="Upravit událost" Click="BtnEdit_Click"/>
-            <Button x:Name="btnRemove" Content="-" Width="20" Margin="0,0,10,0" ToolTip="Odstranit událost" Click="BtnRemove_Click"/>
-            <Button x:Name="btnShowAll" Content="o" Width="20" Margin="0,0,2,0" ToolTip="Zobrazit události" Click="BtnShowAll_Click"/>
+        <Label x:Name="lblTime" Grid.Row="0" Content="1.1.2020 12:00" HorizontalContentAlignment="Center" FontSize="20" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblDay" Grid.Row="1" Content="Pondělí" HorizontalContentAlignment="Center" FontSize="15" Grid.ColumnSpan="2"/>
+        <GroupBox Header="Dnes" Grid.Row="2" Grid.Column="0">
+            <Grid Margin="5">
+                <ListBox x:Name="lstTodayEvents">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" >
+                                <TextBlock.ToolTip>
+                                    <ToolTip Content="{Binding Date}" ContentStringFormat="{}{0:dd.MM.yyyy HH:mm}" />
+                                </TextBlock.ToolTip>
+                            </TextBlock>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+        </GroupBox>
+        <GroupBox Header="V příštím týdnu" Grid.Row="2" Grid.Column="1">
+            <Grid Margin="5">
+                <ListBox x:Name="lstNextEvents">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}">
+                                <TextBlock.ToolTip>
+                                    <ToolTip Content="{Binding Date}" ContentStringFormat="{}{0:dd.MM.yyyy HH:mm}" />
+                                </TextBlock.ToolTip>
+                            </TextBlock>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+        </GroupBox>
+        <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="0,4">
+            <Button x:Name="btnAdd" Content="+" Width="20" Height="20" Margin="2,0,2,0" ToolTip="Přidat událost" Click="BtnAdd_Click"/>
+            <Button x:Name="btnEdit" Content="x" Width="20" Height="20" Margin="0,0,2,0" ToolTip="Upravit událost" Click="BtnEdit_Click"/>
+            <Button x:Name="btnRemove" Content="-" Width="20" Height="20" Margin="0,0,10,0" ToolTip="Odstranit událost" Click="BtnRemove_Click"/>
+            <Button x:Name="btnShowAll" Content="o" Width="20" Height="20" Margin="0,0,2,0" ToolTip="Zobrazit události" Click="BtnShowAll_Click"/>
         </StackPanel>
     </Grid>
 </Window>

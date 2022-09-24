@@ -51,8 +51,8 @@ namespace Calendar
             EventList.Events.Add(form.Value);
 
             MessageBox.Show("Událost úspěšně přidána");
+            Refresh_EventLists();
         }
-
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
             ChooseEvent formC = new ChooseEvent();
@@ -73,13 +73,13 @@ namespace Calendar
             if (!form.ShowDialog().GetValueOrDefault()) return;
 
             MessageBox.Show("Událost úspěšně upravena");
+            Refresh_EventLists();
         }
-
         private void BtnRemove_Click(object sender, RoutedEventArgs e)
         {
             ChooseEvent formC = new ChooseEvent();
             {
-                Title = "Edit události";
+                Title = "Vymazání události";
                 Activate();
             }
 
@@ -88,6 +88,7 @@ namespace Calendar
             EventList.Events.Remove(formC.Value);
 
             MessageBox.Show("Událost úspěšně vymazána");
+            Refresh_EventLists();
         }
 
         private void BtnShowAll_Click(object sender, RoutedEventArgs e)
@@ -103,12 +104,22 @@ namespace Calendar
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             DispatcherTimer_Tick(sender, e);
-            EventList.LoadData();
+            bool success = EventList.LoadData();
+            if (!success)
+                MessageBox.Show("Chyba při načítání dat");
+            Refresh_EventLists();
         }
-
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            EventList.SaveData();
+            bool success = EventList.SaveData();
+            if (!success)
+                MessageBox.Show("Chyba při ukládání dat");
+        }
+
+        private void Refresh_EventLists()
+        {
+            lstTodayEvents.ItemsSource = EventList.Events.Where(x => x.Date >= DateTime.Today && x.Date < DateTime.Today.AddDays(1)).ToList();
+            lstNextEvents.ItemsSource = EventList.Events.Where(x => x.Date > DateTime.Today.AddDays(1) && x.Date < DateTime.Today.AddDays(6)).ToList();
         }
     }
 }
