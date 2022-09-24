@@ -1,0 +1,34 @@
+﻿<Window x:Class="Calendar.ShowEvent"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calendar"
+        mc:Ignorable="d"
+        Title="Náhled události" Height="180" Width="220" MinHeight="180" MinWidth="180">
+    <GroupBox Grid.Row="1" Header="Událost">
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.Column="0" Content="Název"/>
+            <TextBox Grid.Row="0" Grid.Column="1" x:Name="txtName" Text="Nová událost" VerticalContentAlignment="Center" Margin="0,2" IsEnabled="False"/>
+
+            <Label Grid.Row="1" Grid.Column="0" Content="Datum"/>
+            <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtDate" VerticalContentAlignment="Center" Margin="0,2" IsEnabled="False"/>
+
+            <Label Grid.Row="2" Grid.Column="0" Content="Popis"/>
+            <TextBox Grid.Row="2" Grid.Column="1" x:Name="txtDesc" VerticalContentAlignment="Center" Margin="0,2" IsEnabled="False"/>
+
+            <Label Grid.Row="3" Grid.Column="0" Content="Opakuje se"/>
+            <CheckBox Grid.Row="3" Grid.Column="1" Margin="2,5" x:Name="chbRepeat" IsEnabled="False"/>
+        </Grid>
+    </GroupBox>
+</Window>

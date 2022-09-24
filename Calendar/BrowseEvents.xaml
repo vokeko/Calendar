@@ -1,0 +1,42 @@
+﻿<Window x:Class="Calendar.BrowseEvents"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calendar"
+        mc:Ignorable="d"
+        Title="Prohlížení kalendáře" Height="220" Width="400" MinHeight="220" MinWidth="380" MaxWidth="400" MaxHeight="250" Loaded="Window_Loaded">
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="170"/>
+        </Grid.ColumnDefinitions>
+        <Calendar Grid.Column="0" Margin="0,0,5,0" x:Name="cldBrowse" SelectedDatesChanged="CldBrowse_SelectedDatesChanged"/>
+        <GroupBox Grid.Column="1" Header="Zvolené datum">
+            <Grid Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20" />
+                    <RowDefinition />
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Label Content="Události dne:" Grid.Row="0" FontSize="9"/>
+                <ListBox x:Name="lstChosenDate" MouseDoubleClick="LstChosenDate_MouseDoubleClick" Grid.Row="1">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}">
+                                <TextBlock.ToolTip>
+                                    <ToolTip Content="{Binding Date}" ContentStringFormat="{}{0:dd.MM.yyyy HH:mm}" />
+                                </TextBlock.ToolTip>
+                            </TextBlock>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,4">
+                    <Button x:Name="btnAdd" Content="+" Width="20" Height="20" Margin="2,0,2,0" ToolTip="Přidat událost" Click="BtnAdd_Click"/>
+                    <Button x:Name="btnEdit" Content="x" Width="20" Height="20" Margin="0,0,2,0" ToolTip="Upravit událost" Click="BtnEdit_Click"/>
+                    <Button x:Name="btnRemove" Content="-" Width="20" Height="20" Margin="0,0,10,0" ToolTip="Odstranit událost" Click="BtnRemove_Click"/>
+                </StackPanel>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>

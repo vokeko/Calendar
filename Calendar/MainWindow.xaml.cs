@@ -90,15 +90,14 @@ namespace Calendar
             MessageBox.Show("Událost úspěšně vymazána");
             Refresh_EventLists();
         }
-
         private void BtnShowAll_Click(object sender, RoutedEventArgs e)
         {
-            StringBuilder stringg = new StringBuilder();
-            foreach (Event oneEvent in EventList.Events)
+            BrowseEvents form = new BrowseEvents();
             {
-                stringg.AppendLine(string.Format("{0}, {1}, {2}, {3}", oneEvent.Name, oneEvent.Description, oneEvent.Date.ToString(), oneEvent.Repeat));
+                Activate();
             }
-            MessageBox.Show(stringg.ToString());
+            form.ShowDialog();
+            Refresh_EventLists();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -120,6 +119,18 @@ namespace Calendar
         {
             lstTodayEvents.ItemsSource = EventList.Events.Where(x => x.Date >= DateTime.Today && x.Date < DateTime.Today.AddDays(1)).ToList();
             lstNextEvents.ItemsSource = EventList.Events.Where(x => x.Date > DateTime.Today.AddDays(1) && x.Date < DateTime.Today.AddDays(6)).ToList();
+        }
+
+        private void Lst_DoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (((FrameworkElement)e.OriginalSource).DataContext is Event item)
+            {
+                ShowEvent form = new ShowEvent(item);
+                {
+                    Activate();
+                }
+                form.ShowDialog();
+            }
         }
     }
 }

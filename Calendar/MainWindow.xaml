@@ -22,7 +22,7 @@
         <Label x:Name="lblDay" Grid.Row="1" Content="Pondělí" HorizontalContentAlignment="Center" FontSize="15" Grid.ColumnSpan="2"/>
         <GroupBox Header="Dnes" Grid.Row="2" Grid.Column="0">
             <Grid Margin="5">
-                <ListBox x:Name="lstTodayEvents">
+                <ListBox x:Name="lstTodayEvents" MouseDoubleClick="Lst_DoubleClick">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Name}" >
@@ -37,7 +37,7 @@
         </GroupBox>
         <GroupBox Header="V příštím týdnu" Grid.Row="2" Grid.Column="1">
             <Grid Margin="5">
-                <ListBox x:Name="lstNextEvents">
+                <ListBox x:Name="lstNextEvents" MouseDoubleClick="Lst_DoubleClick">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Name}">
