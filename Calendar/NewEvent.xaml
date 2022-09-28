@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calendar"
         mc:Ignorable="d"
-        Title="Nová událost" Height="240" Width="450" MinHeight="240" MinWidth="200">
+        Title="Nová událost" Height="240" Width="450" MinHeight="240" MinWidth="200" Icon="Resources\add.ico">
     <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>

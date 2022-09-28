@@ -51,9 +51,9 @@
             </Grid>
         </GroupBox>
         <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="0,4">
-            <Button x:Name="btnAdd" Content="+" Width="20" Height="20" Margin="2,0,2,0" ToolTip="Přidat událost" Click="BtnAdd_Click"/>
+            <Button x:Name="btnAdd" Width="20" Height="20" Margin="2,0,2,0" ToolTip="Přidat událost" Click="BtnAdd_Click"><Image Source="Resources/add.ico"/></Button>
             <Button x:Name="btnEdit" Content="x" Width="20" Height="20" Margin="0,0,2,0" ToolTip="Upravit událost" Click="BtnEdit_Click"/>
-            <Button x:Name="btnRemove" Content="-" Width="20" Height="20" Margin="0,0,10,0" ToolTip="Odstranit událost" Click="BtnRemove_Click"/>
+            <Button x:Name="btnRemove" Width="20" Height="20" Margin="0,0,10,0" ToolTip="Odstranit událost" Click="BtnRemove_Click"><Image Source="Resources/del.ico"/></Button>
             <Button x:Name="btnShowAll" Content="o" Width="20" Height="20" Margin="0,0,2,0" ToolTip="Zobrazit události" Click="BtnShowAll_Click"/>
         </StackPanel>
     </Grid>
