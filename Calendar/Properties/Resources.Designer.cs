@@ -73,9 +73,39 @@ namespace Calendar.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
+        public static System.Drawing.Icon calendar {
+            get {
+                object obj = ResourceManager.GetObject("calendar", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
         public static System.Drawing.Icon del {
             get {
                 object obj = ResourceManager.GetObject("del", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        public static System.Drawing.Icon edit {
+            get {
+                object obj = ResourceManager.GetObject("edit", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        /// </summary>
+        public static System.Drawing.Icon view {
+            get {
+                object obj = ResourceManager.GetObject("view", resourceCulture);
                 return ((System.Drawing.Icon)(obj));
             }
         }

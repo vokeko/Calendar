@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\calendar.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -132,6 +135,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\add.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\calendar.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\edit.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\view.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -41,7 +41,6 @@ namespace Calendar
         {
             NewEvent form = new NewEvent(null);
             {
-                Title = "Nová událost";
                 Activate();
             }
             //form.Owner = Application.Current.MainWindow;
@@ -57,7 +56,6 @@ namespace Calendar
         {
             ChooseEvent formC = new ChooseEvent();
             {
-                Title = "Edit události";
                 Activate();
             }
 
@@ -66,7 +64,6 @@ namespace Calendar
 
             NewEvent form = new NewEvent(formC.Value);
             {
-                Title = "Edit události";
                 Activate();
             }
 
@@ -79,7 +76,6 @@ namespace Calendar
         {
             ChooseEvent formC = new ChooseEvent();
             {
-                Title = "Vymazání události";
                 Activate();
             }
 
