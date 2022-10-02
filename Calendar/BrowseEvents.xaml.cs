@@ -44,8 +44,8 @@ namespace Calendar
                     Title = "Nová událost";
                     Activate();
                 }
+                form.Owner = this;
                 form.dtPicker.SelectedDate = cldBrowse.SelectedDate;
-                //form.Owner = Application.Current.MainWindow;
 
                 if (!form.ShowDialog().GetValueOrDefault()) return;
 
@@ -74,6 +74,7 @@ namespace Calendar
                     Title = "Edit události";
                     Activate();
                 }
+                form.Owner = this;
 
                 if (!form.ShowDialog().GetValueOrDefault()) return;
 
@@ -91,6 +92,7 @@ namespace Calendar
                 {
                     Activate();
                 }
+                form.Owner = this;
                 form.ShowDialog();
             }
         }

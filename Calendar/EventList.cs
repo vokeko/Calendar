@@ -10,13 +10,13 @@ namespace Calendar
     static class EventList
     {
         public static List<Event> Events { get; private set; } = new List<Event>();
-        internal static bool LoadData()
+        internal static string LoadData()
         {
             try
             {
                 using (Stream stream = File.Open("events.bin", FileMode.OpenOrCreate))
                 {
-                    if (stream.Length == 0) return false;
+                    if (stream.Length == 0) return "Nový datový objekt úspěšně založen";
 
                     BinaryFormatter bin = new BinaryFormatter();
                     {
@@ -28,16 +28,16 @@ namespace Calendar
                                 Events.AddRange(_events);
                                 break;
                             default:
-                                return false;
+                                return "Nekompatibilní datový objekt";
                         }
                     }
                 }
                 DiscardOldEvents();
-                return true;
+                return null;
             }
             catch
             {
-                return false;
+                return "Chyba při načítání dat";
             }
         }
         internal static bool SaveData()
@@ -68,6 +68,10 @@ namespace Calendar
                     Events.Add(new Event(oldEvent.Name, oldEvent.Description, oldEvent.Date.AddYears(1), true));
             }
             Events = Events.Where(x => x.Date >= DateTime.Today).OrderBy(x => x.Date).ToList();
+        }
+        internal static void SortEvents()
+        {
+            Events = Events.OrderBy(x => x.Date).ToList();
         }
     }
 }

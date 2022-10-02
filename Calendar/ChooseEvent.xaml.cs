@@ -44,26 +44,10 @@ namespace Calendar
 
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
-            if (!Kontrola()) return;
             this.Value = EventList.Events[lstEvents.SelectedIndex];
 
             this.DialogResult = true;
             this.Close();
-        }
-
-        private bool Kontrola()
-        {
-            StringBuilder errors = new StringBuilder();
-
-            if (errors.Length > 0)
-            {
-                MessageBox.Show(errors.ToString());
-                return false;
-            }
-            else
-            {
-                return true;
-            }
         }
     }
 }

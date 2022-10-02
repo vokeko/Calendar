@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calendar"
         mc:Ignorable="d"
-        Title="Prohlížení kalendáře" Height="220" Width="400" MinHeight="220" MinWidth="380" MaxWidth="400" MaxHeight="250" Loaded="Window_Loaded" Icon="Resources\view.ico">
+        Title="Prohlížení kalendáře" Height="220" Width="400" MinHeight="220" MinWidth="380" MaxWidth="400" MaxHeight="250" Loaded="Window_Loaded" Icon="Resources\view.ico"  WindowStartupLocation="CenterOwner">
     <Grid Margin="5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />

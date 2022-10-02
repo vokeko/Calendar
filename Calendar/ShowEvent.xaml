@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Calendar"
         mc:Ignorable="d"
-        Title="Náhled události" Height="180" Width="220" MinHeight="180" MinWidth="180" Icon="Resources\view.ico">
+        Title="Náhled události" Height="180" Width="220" MinHeight="180" MinWidth="180" Icon="Resources\view.ico" WindowStartupLocation="CenterOwner">
     <GroupBox Grid.Row="1" Header="Událost">
         <Grid Margin="5">
             <Grid.RowDefinitions>

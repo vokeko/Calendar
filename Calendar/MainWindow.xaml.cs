@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -43,7 +43,7 @@ namespace Calendar
             {
                 Activate();
             }
-            //form.Owner = Application.Current.MainWindow;
+            form.Owner = this;
 
             if (!form.ShowDialog().GetValueOrDefault()) return;
 
@@ -58,6 +58,7 @@ namespace Calendar
             {
                 Activate();
             }
+            formC.Owner = this;
 
             if (!formC.ShowDialog().GetValueOrDefault()) return;
 
@@ -66,6 +67,7 @@ namespace Calendar
             {
                 Activate();
             }
+            form.Owner = this;
 
             if (!form.ShowDialog().GetValueOrDefault()) return;
 
@@ -74,14 +76,14 @@ namespace Calendar
         }
         private void BtnRemove_Click(object sender, RoutedEventArgs e)
         {
-            ChooseEvent formC = new ChooseEvent();
+            ChooseEvent form = new ChooseEvent();
             {
                 Activate();
             }
+            form.Owner = this;
+            if (!form.ShowDialog().GetValueOrDefault()) return;
 
-            if (!formC.ShowDialog().GetValueOrDefault()) return;
-
-            EventList.Events.Remove(formC.Value);
+            EventList.Events.Remove(form.Value);
 
             MessageBox.Show("Událost úspěšně vymazána");
             Refresh_EventLists();
@@ -92,6 +94,7 @@ namespace Calendar
             {
                 Activate();
             }
+            form.Owner = this;
             form.ShowDialog();
             Refresh_EventLists();
         }
@@ -99,9 +102,9 @@ namespace Calendar
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             DispatcherTimer_Tick(sender, e);
-            bool success = EventList.LoadData();
-            if (!success)
-                MessageBox.Show("Chyba při načítání dat");
+            string chyba = EventList.LoadData();
+            if (chyba != null)
+                MessageBox.Show(chyba);
             Refresh_EventLists();
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
@@ -113,8 +116,9 @@ namespace Calendar
 
         private void Refresh_EventLists()
         {
+            EventList.SortEvents();
             lstTodayEvents.ItemsSource = EventList.Events.Where(x => x.Date >= DateTime.Today && x.Date < DateTime.Today.AddDays(1)).ToList();
-            lstNextEvents.ItemsSource = EventList.Events.Where(x => x.Date > DateTime.Today.AddDays(1) && x.Date < DateTime.Today.AddDays(6)).ToList();
+            lstNextEvents.ItemsSource = EventList.Events.Where(x => x.Date >= DateTime.Today.AddDays(1) && x.Date < DateTime.Today.AddDays(6)).ToList();
         }
 
         private void Lst_DoubleClick(object sender, MouseButtonEventArgs e)
@@ -125,6 +129,7 @@ namespace Calendar
                 {
                     Activate();
                 }
+                form.Owner = this;
                 form.ShowDialog();
             }
         }
