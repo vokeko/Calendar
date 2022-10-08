@@ -149,19 +149,19 @@ namespace Calendar
             ContextMenu menu = new ContextMenu();
             MenuItem item = new MenuItem();
             item.Header = "Zobrazit záznam";
-            item.Icon = Properties.Resources.view;
+            //item.Icon = Properties.Resources.view;
             item.Click += Menu_View;
             menu.Items.Add(item);
 
             item = new MenuItem();
             item.Header = "Upravit záznam";
-            item.Icon = Properties.Resources.edit;
+            //item.Icon = Properties.Resources.edit;
             item.Click += Menu_Edit;
             menu.Items.Add(item);
 
             item = new MenuItem();
             item.Header = "Vymazat záznam";
-            item.Icon = Properties.Resources.del;
+            //item.Icon = Properties.Resources.del;
             item.Click += Menu_Delete;
             menu.Items.Add(item);
 
