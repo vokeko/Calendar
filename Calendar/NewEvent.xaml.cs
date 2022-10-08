@@ -29,6 +29,10 @@ namespace Calendar
                 Value = prevEvent;
                 EventLoad(prevEvent);
             }
+            else
+                dtPicker.SelectedDate = DateTime.Today.AddDays(1);
+
+            dtPicker.BlackoutDates.AddDatesInPast();
         }
         private void EventLoad(Event prevEvent)
         {

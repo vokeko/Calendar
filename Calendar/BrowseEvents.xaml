@@ -11,7 +11,13 @@
             <ColumnDefinition />
             <ColumnDefinition Width="170"/>
         </Grid.ColumnDefinitions>
-        <Calendar Grid.Column="0" Margin="0,0,5,0" x:Name="cldBrowse" SelectedDatesChanged="CldBrowse_SelectedDatesChanged"/>
+        <Calendar Grid.Column="0" Margin="0,0,5,0" x:Name="cldBrowse" SelectedDatesChanged="CldBrowse_SelectedDatesChanged" >
+            <Calendar.CalendarDayButtonStyle>
+                <Style TargetType="CalendarDayButton" BasedOn="{StaticResource {x:Type CalendarDayButton}}">
+                    <EventSetter Event="Loaded" Handler="CalendarDayButton_Loaded"/>
+                </Style>
+            </Calendar.CalendarDayButtonStyle>
+        </Calendar>
         <GroupBox Grid.Column="1" Header="Zvolené datum">
             <Grid Margin="5">
                 <Grid.RowDefinitions>

@@ -5,11 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Calendar
@@ -27,6 +29,7 @@ namespace Calendar
         private void CldBrowse_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
             RefreshEvents();
+            Mouse.Capture(null);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -101,6 +104,30 @@ namespace Calendar
         {
             if (cldBrowse.SelectedDate != null)
                 lstChosenDate.ItemsSource = EventList.Events.Where(x => x.Date >= cldBrowse.SelectedDate && x.Date < cldBrowse.SelectedDate.Value.AddDays(1)).ToList();
+        }
+
+        private void CalendarDayButton_Loaded(object sender, RoutedEventArgs e)
+        {
+            CalendarDayButton button = (CalendarDayButton)sender;
+            DateTime date = (DateTime)button.DataContext;
+            HighlightDay(button, date);
+            button.DataContextChanged += new DependencyPropertyChangedEventHandler(CalendarButton_DataContextChanged);
+        }
+
+        private void HighlightDay(CalendarDayButton button, DateTime date)
+        {
+            if (EventList.Events.Any(x => x.Date == date))
+                button.Background = EventList.HighlightBrush;
+            else
+                button.Background = Brushes.Transparent;
+            //(SolidColorBrush)new BrushConverter().ConvertFrom("#eeeeee");
+        }
+
+        private void CalendarButton_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            CalendarDayButton button = (CalendarDayButton)sender;
+            DateTime date = (DateTime)button.DataContext;
+            HighlightDay(button, date);
         }
     }
 }
