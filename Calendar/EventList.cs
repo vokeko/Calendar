@@ -4,12 +4,18 @@ using System.Linq;
 using System.Text;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using System.Windows.Media;
+using System.Threading;
+using System.Globalization;
 
 namespace Calendar
 {
     static class EventList
     {
         public static List<Event> Events { get; private set; } = new List<Event>();
+        internal static SolidColorBrush HighlightBrush { get; private set; } = Brushes.Pink;
+        internal static CultureInfo Language { get; private set; } = CultureInfo.CurrentCulture;
+
         internal static string LoadData()
         {
             try
@@ -24,8 +30,13 @@ namespace Calendar
 
                         switch (deseri)
                         {
-                            case List<Event> _events:
-                                Events.AddRange(_events);
+                            case BinaryTempEvents data:
+                                Events.AddRange(data.TempEvents);
+                                HighlightBrush = SetBrush(data.TempBrush);
+                                Language = data.Culture;
+                                break;
+                            case List<Event> events:
+                                Events.AddRange(events);
                                 break;
                             default:
                                 return "Nekompatibilní datový objekt";
@@ -48,7 +59,7 @@ namespace Calendar
                 using (Stream stream = File.Open("events.bin", FileMode.Create))
                 {
                     BinaryFormatter bin = new BinaryFormatter();
-                    bin.Serialize(stream, Events);
+                    bin.Serialize(stream, new BinaryTempEvents());
                 }
                 return true;
             }
@@ -72,6 +83,24 @@ namespace Calendar
         internal static void SortEvents()
         {
             Events = Events.OrderBy(x => x.Date).ToList();
+        }
+        internal static SolidColorBrush SetBrush(string tempbrush)
+        {
+            return HighlightBrush = (SolidColorBrush)new BrushConverter().ConvertFrom(tempbrush);
+        }
+
+        [Serializable]
+        private class BinaryTempEvents
+        {
+            internal List<Event> TempEvents { get; }
+            internal string TempBrush { get; }
+            internal CultureInfo Culture { get; }
+            public BinaryTempEvents()
+            {
+                TempEvents = Events;
+                TempBrush = HighlightBrush.Color.ToString();
+                Culture = Language;
+            }
         }
     }
 }
