@@ -55,6 +55,7 @@
             <Button x:Name="btnEdit" Width="20" Height="20" Margin="0,0,2,0" ToolTip="Upravit událost" Click="BtnEdit_Click"><Image Source="Resources/edit.ico"/></Button>
             <Button x:Name="btnRemove" Width="20" Height="20" Margin="0,0,10,0" ToolTip="Odstranit událost" Click="BtnRemove_Click"><Image Source="Resources/del.ico"/></Button>
             <Button x:Name="btnShowAll" Width="20" Height="20" Margin="0,0,2,0" ToolTip="Zobrazit události" Click="BtnShowAll_Click"><Image Source="Resources/view.ico"/></Button>
+            <Button x:Name="btnSettings" Width="20" Height="20" Margin="0,0,2,0" ToolTip="Nastavení" Click="BtnSettings_Click"><Image Source="Resources/settings.ico"/></Button>
         </StackPanel>
     </Grid>
 </Window>

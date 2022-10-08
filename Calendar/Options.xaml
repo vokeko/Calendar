@@ -1,0 +1,88 @@
+﻿<Window x:Class="Calendar.Options"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calendar"
+        mc:Ignorable="d"
+        Title="Nastavení" Height="200" Width="300" MinHeight="150" MinWidth="200" WindowStartupLocation="CenterOwner" Icon="Resources/settings.ico">
+    <Grid Margin="5">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TabControl Grid.Row="0">
+            <TabItem Header="Styly">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Barva zvýraznění" Grid.Column="0" />
+                    <TextBox Grid.Column="1" MaxLength="7" Text="#"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Lokalizace">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Jazyk" Grid.Column="0"/>
+                    <ComboBox Grid.Column="1"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Zálohování">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Label Content="Zálohovat?" Grid.Row="0" Grid.Column="0" />
+                    <CheckBox Grid.Row="0"  Grid.Column="1" VerticalAlignment="Center"/>
+
+                    <Label Content="Frekvence" Grid.Row="1" Grid.Column="0" />
+                    <TextBox Grid.Row="1" Grid.Column="1"/>
+
+                    <Label Content="Umístění" Grid.Row="2" Grid.Column="0" />
+                    <TextBox Grid.Row="2"  Grid.Column="1" />
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Data">
+                <Grid Margin="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Width="80" Height="25" Margin="5" Content="Načíst data" />
+                    <Label Grid.Row="0" Grid.Column="1" Content="Načíst data ze souboru" VerticalAlignment="Center"/>
+
+                    <Button Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Width="80" Height="25" Margin="5" Content="Uložit data" />
+                    <Label Grid.Row="1" Grid.Column="1" Content="Uložit data do souboru" VerticalAlignment="Center"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <Button Grid.Row="3" Width="80" Height="25" Margin="5"  Content="Potvrdit" />
+    </Grid>
+</Window>

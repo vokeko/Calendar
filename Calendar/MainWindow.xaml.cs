@@ -98,6 +98,15 @@ namespace Calendar
             form.ShowDialog();
             Refresh_EventLists();
         }
+        private void BtnSettings_Click(object sender, RoutedEventArgs e)
+        {
+            Options form = new Options();
+            {
+                Activate();
+            }
+            form.Owner = this;
+            form.ShowDialog();
+        }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -106,6 +115,7 @@ namespace Calendar
             if (chyba != null)
                 MessageBox.Show(chyba);
             Refresh_EventLists();
+            SetButtons();
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
@@ -132,6 +142,98 @@ namespace Calendar
                 form.Owner = this;
                 form.ShowDialog();
             }
+        }
+
+        private void SetButtons()
+        {
+            ContextMenu menu = new ContextMenu();
+            MenuItem item = new MenuItem();
+            item.Header = "Zobrazit záznam";
+            item.Icon = Properties.Resources.view;
+            item.Click += Menu_View;
+            menu.Items.Add(item);
+
+            item = new MenuItem();
+            item.Header = "Upravit záznam";
+            item.Icon = Properties.Resources.edit;
+            item.Click += Menu_Edit;
+            menu.Items.Add(item);
+
+            item = new MenuItem();
+            item.Header = "Vymazat záznam";
+            item.Icon = Properties.Resources.del;
+            item.Click += Menu_Delete;
+            menu.Items.Add(item);
+
+            ContextMenu = menu;
+        }
+
+        private void Menu_Delete(object sender, RoutedEventArgs e)
+        {
+            if (this.lstNextEvents.SelectedItem is Event next)
+            {
+                EventList.Events.Remove(next);
+            }
+            else if (this.lstTodayEvents.SelectedItem is Event today)
+            {
+                EventList.Events.Remove(today);
+            }
+            else
+            {
+                return;
+            }
+            MessageBox.Show("Událost úspěšně vymazána");
+            Refresh_EventLists();
+        }
+        private void Menu_Edit(object sender, RoutedEventArgs e)
+        {
+            Event ev;
+            if (this.lstNextEvents.SelectedItem is Event next)
+            {
+                ev = next;
+            }
+            else if (this.lstTodayEvents.SelectedItem is Event today)
+            {
+                ev = today;
+            }
+            else
+            {
+                return;
+            }
+
+            NewEvent form = new NewEvent(ev);
+            {
+                Activate();
+            }
+            form.Owner = this;
+
+            if (!form.ShowDialog().GetValueOrDefault()) return;
+
+            MessageBox.Show("Událost úspěšně upravena");
+            Refresh_EventLists();
+        }
+        private void Menu_View(object sender, RoutedEventArgs e)
+        {
+            Event ev;
+            if (this.lstNextEvents.SelectedItem is Event next)
+            {
+                ev = next;
+            }
+            else if (this.lstTodayEvents.SelectedItem is Event today)
+            {
+                ev = today;
+            }
+            else
+            {
+                return;
+            }
+
+            ShowEvent form = new ShowEvent(ev);
+            {
+                Activate();
+            }
+            form.Owner = this;
+            form.ShowDialog();
         }
     }
 }

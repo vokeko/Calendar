@@ -62,6 +62,9 @@
     <Compile Include="BrowseEvents.xaml.cs">
       <DependentUpon>BrowseEvents.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Options.xaml.cs">
+      <DependentUpon>Options.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ShowEvent.xaml.cs">
       <DependentUpon>ShowEvent.xaml</DependentUpon>
     </Compile>
@@ -94,6 +97,10 @@
     <Page Include="NewEvent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Options.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="ShowEvent.xaml">
       <SubType>Designer</SubType>
@@ -144,6 +151,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\view.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\settings.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
