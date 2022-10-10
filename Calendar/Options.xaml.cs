@@ -26,15 +26,15 @@ namespace Calendar
 
         private void BtnLoad_Click(object sender, RoutedEventArgs e)
         {
-
+            EventList.LoadDataFrom();
         }
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
-
+            EventList.SaveDataAs();
         }
         private void BtnExport_Click(object sender, RoutedEventArgs e)
         {
-
+            EventList.ExportData();
         }
 
         private void TxtBackupPath_PreviewMouseDown(object sender, MouseButtonEventArgs e)

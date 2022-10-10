@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -111,7 +111,7 @@ namespace Calendar
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             DispatcherTimer_Tick(sender, e);
-            string chyba = EventList.LoadData();
+            string chyba = EventList.LoadData(null);
             if (chyba != null)
                 MessageBox.Show(chyba);
             Refresh_EventLists();
@@ -119,7 +119,7 @@ namespace Calendar
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            bool success = EventList.SaveData();
+            bool success = EventList.SaveData(null);
             if (!success)
                 MessageBox.Show("Chyba při ukládání dat");
         }
