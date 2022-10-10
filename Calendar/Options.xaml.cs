@@ -23,5 +23,32 @@ namespace Calendar
         {
             InitializeComponent();
         }
+
+        private void BtnLoad_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void BtnExport_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TxtBackupPath_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            //
+        }
+
+        private void BtnConfirm_Click(object sender, RoutedEventArgs e)
+        {
+            string txtbrush = txtColor.Text.Trim();
+            if (txtbrush[0] != '#') txtbrush = txtbrush.Insert(0, "#");
+            EventList.SetBrush(txtbrush);
+
+            this.Close();
+        }
     }
 }

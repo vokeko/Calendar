@@ -116,7 +116,7 @@ namespace Calendar
 
         private void HighlightDay(CalendarDayButton button, DateTime date)
         {
-            if (EventList.Events.Any(x => x.Date == date))
+            if (EventList.Events.Any(x => x.Date.Date == date.Date))
                 button.Background = EventList.HighlightBrush;
             else
                 button.Background = Brushes.Transparent;
