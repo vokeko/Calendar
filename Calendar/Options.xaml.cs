@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 
 namespace Calendar
 {
@@ -22,6 +23,8 @@ namespace Calendar
         public Options()
         {
             InitializeComponent();
+            cmbBackupFreq.ItemsSource = Enum.GetValues(typeof(EventList.BackupFrequency));
+            cmbBackupFreq.SelectedIndex = 0;
         }
 
         private void BtnLoad_Click(object sender, RoutedEventArgs e)
@@ -39,15 +42,26 @@ namespace Calendar
 
         private void TxtBackupPath_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            //
+            SaveFileDialog saveFileDialog = new SaveFileDialog()
+            {
+                Title = "Pozice zálohování",
+                DefaultExt = "bin",
+                Filter = "Binary files (*.bin)|*.bin",
+                CheckPathExists = true,
+                FileName = "events.bin",
+            };
+
+            if (saveFileDialog.ShowDialog().GetValueOrDefault())
+            {
+                txtBackupPath.Text = saveFileDialog.FileName;
+            }
         }
 
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
-            string txtbrush = txtColor.Text.Trim();
-            if (txtbrush[0] != '#') txtbrush = txtbrush.Insert(0, "#");
-            EventList.SetBrush(txtbrush);
-
+            EventList.SetBrush(txtColor.Text);
+            EventList.SetBackupInfo((EventList.BackupFrequency)cmbBackupFreq.SelectedItem, txtBackupPath.Text);
+            
             this.Close();
         }
     }

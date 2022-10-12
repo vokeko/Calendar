@@ -16,7 +16,11 @@ namespace Calendar
     {
         public static List<Event> Events { get; private set; } = new List<Event>();
         internal static SolidColorBrush HighlightBrush { get; private set; } = Brushes.Pink;
-        internal static CultureInfo Language { get; private set; } = CultureInfo.CurrentCulture;
+        private static CultureInfo Language { get; set; } = CultureInfo.CurrentCulture;
+
+        private static string BackupPath { get; set; } = null;
+        private static BackupFrequency BackupFreq { get; set; } = BackupFrequency.None;
+        private static DateTime LastBackup { get; set; } = default;
 
         internal static string LoadData(string filePath)
         {
@@ -38,6 +42,10 @@ namespace Calendar
                                 Events.AddRange(data.TempEvents);
                                 SetBrush(data.TempBrush);
                                 Language = data.Culture;
+                                CultureInfo.DefaultThreadCurrentCulture = Language;
+                                BackupFreq = data.TempBackupFreq;
+                                BackupPath = data.TempBackupPath;
+                                LastBackup = data.TempLastBackup;
                                 break;
                             case List<Event> events:
                                 Events.AddRange(events);
@@ -96,12 +104,14 @@ namespace Calendar
 
         internal static void SaveDataAs()
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Title = "Ukládání dat";
-            saveFileDialog.DefaultExt = "bin";
-            saveFileDialog.Filter = "Binary files (*.bin)|*.bin";
-            saveFileDialog.CheckPathExists = true;
-            saveFileDialog.FileName = "events.bin";
+            SaveFileDialog saveFileDialog = new SaveFileDialog() 
+            {
+                Title = "Ukládání dat",
+                DefaultExt = "bin",
+                Filter = "Binary files (*.bin)|*.bin",
+                CheckPathExists = true,
+                FileName = "events.bin",
+            };
 
             if (saveFileDialog.ShowDialog().GetValueOrDefault())
             {
@@ -112,12 +122,14 @@ namespace Calendar
         }
         internal static void LoadDataFrom()
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Načítání dat";
-            openFileDialog.DefaultExt = "bin";
-            openFileDialog.Filter = "Binary files (*.bin)|*.bin";
-            openFileDialog.CheckPathExists = true;
-            openFileDialog.FileName = "events.bin";
+            OpenFileDialog openFileDialog = new OpenFileDialog() 
+            {
+                Title = "Načítání dat",
+                DefaultExt = "bin",
+                Filter = "Binary files (*.bin)|*.bin",
+                CheckPathExists = true,
+                FileName = "events.bin",
+            };
 
             if (openFileDialog.ShowDialog().GetValueOrDefault())
             {
@@ -147,7 +159,10 @@ namespace Calendar
 
         internal static void SetBrush(string tempbrush)
         {
-            if (tempbrush.IsValidHexCode())
+            tempbrush = tempbrush.Trim();
+            if (tempbrush[0] != '#') 
+                tempbrush = tempbrush.Insert(0, "#");
+            if (tempbrush.IsValidHexCode()) 
                 HighlightBrush = (SolidColorBrush)new BrushConverter().ConvertFrom(tempbrush);
         }
 
@@ -167,18 +182,64 @@ namespace Calendar
             return ret.ToString();
         }
 
+        internal static bool FileBackup()
+        {
+            if (BackupFreq != BackupFrequency.None && BackupPath != null && LastBackup < DateTime.Now)
+            {
+                if (SaveData(BackupPath)) return true;
+            }
+            return false;
+        }
+        internal static bool SetBackupInfo(BackupFrequency _frequency, string path)
+        {
+            //if (Enum.IsDefined(typeof(BackupFrequency), _frequency) && path != null)
+            //{
+            //path += "backup.bin";
+            try
+            {
+                FileInfo info = new FileInfo(path);
+                if (!info.Directory.Exists) return false;
+                BackupPath = path;
+                BackupFreq = /*(BackupFrequency)*/_frequency;
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            //}
+            //return false;
+        }
+
         [Serializable]
         private class BinaryTempEvents
         {
             internal List<Event> TempEvents { get; }
             internal string TempBrush { get; }
             internal CultureInfo Culture { get; }
+            internal BackupFrequency TempBackupFreq { get; }
+            internal string TempBackupPath { get; }
+            internal DateTime TempLastBackup { get; }
+
             public BinaryTempEvents()
             {
                 TempEvents = Events;
                 TempBrush = HighlightBrush.Color.ToString();
                 Culture = Language;
+                TempBackupFreq = BackupFreq;
+                TempBackupPath = BackupPath;
+                TempLastBackup = LastBackup;
             }
+        }
+
+        internal enum BackupFrequency
+        {
+            None = 0,
+            Daily = 1,
+            Weekly = 2,
+            Monthly = 3,
+            Quarterly = 4,
+            Yearly = 5,
         }
     }
 }

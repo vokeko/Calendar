@@ -33,8 +33,9 @@ namespace Calendar
 
         private void DispatcherTimer_Tick(object sender, EventArgs e)
         {
-            lblTime.Content = DateTime.Now.ToString();
+            lblTime.Content = DateTime.Now.ToString(CultureInfo.CurrentCulture);
             lblDay.Content = DateTime.Now.ToString("dddd", CultureInfo.CurrentCulture).FirstCharToUpper();
+            Properties.Settings.Default.Save();
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
@@ -116,6 +117,7 @@ namespace Calendar
                 MessageBox.Show(chyba);
             Refresh_EventLists();
             SetButtons();
+            EventList.FileBackup();
         }
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
