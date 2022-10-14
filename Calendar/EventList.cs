@@ -8,6 +8,7 @@ using System.IO;
 using System.Windows.Media;
 using System.Globalization;
 using Microsoft.Win32;
+using Calendar.Resources.Localization;
 
 namespace Calendar
 {
@@ -29,7 +30,7 @@ namespace Calendar
             {
                 using (Stream stream = File.Open(filePath, FileMode.OpenOrCreate))
                 {
-                    if (stream.Length == 0) return "Nový datový objekt úspěšně založen";
+                    if (stream.Length == 0) return Strings.NewObject;
 
                     BinaryFormatter bin = new BinaryFormatter();
                     {
@@ -50,7 +51,7 @@ namespace Calendar
                                 Events.AddRange(events);
                                 break;
                             default:
-                                return "Nekompatibilní datový objekt";
+                                return Strings.FaultyObject;
                         }
                     }
                 }
@@ -59,7 +60,7 @@ namespace Calendar
             }
             catch
             {
-                return "Chyba při načítání dat";
+                return Strings.SaveError;
             }
         }
         internal static bool SaveData(string filePath)
@@ -86,7 +87,7 @@ namespace Calendar
             SortEvents();
 
             SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Title = "Exportování souboru";
+            saveFileDialog.Title = Strings.Export;
             saveFileDialog.DefaultExt = "txt";
             saveFileDialog.Filter = "txt files (*.txt)|*.txt";
             saveFileDialog.CheckPathExists = true;
@@ -105,9 +106,9 @@ namespace Calendar
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog() 
             {
-                Title = "Ukládání dat",
+                Title = Strings.SaveData,
                 DefaultExt = "bin",
-                Filter = "Binary files (*.bin)|*.bin",
+                Filter = "*.bin|*.bin",
                 CheckPathExists = true,
                 FileName = "events.bin",
             };
@@ -116,16 +117,16 @@ namespace Calendar
             {
                 bool success = SaveData(saveFileDialog.FileName);
                 if (!success)
-                    MessageBox.Show("Chyba při ukládání dat");
+                    MessageBox.Show(Strings.SaveError);
             }
         }
         internal static void LoadDataFrom()
         {
             OpenFileDialog openFileDialog = new OpenFileDialog() 
             {
-                Title = "Načítání dat",
+                Title = Strings.LoadData,
                 DefaultExt = "bin",
-                Filter = "Binary files (*.bin)|*.bin",
+                Filter = "*.bin|*.bin",
                 CheckPathExists = true,
                 FileName = "events.bin",
             };
@@ -169,10 +170,10 @@ namespace Calendar
         {
             BinaryTempEvents tempEvents = new BinaryTempEvents();
             StringBuilder ret = new StringBuilder();
-            ret.AppendLine("Kalendář");
+            ret.AppendLine(Strings.Calendar);
             ret.AppendLine("--------");
-            ret.AppendLine("Barva: "+ tempEvents.TempBrush);
-            ret.AppendLine("Jazyk: " + tempEvents.Culture);
+            ret.AppendLine(String.Format("{0}: {1}", Strings.Color, tempEvents.TempBrush));
+            ret.AppendLine(String.Format("{0}: {1}", Strings.Language, tempEvents.Culture));
             ret.AppendLine("--------");
             foreach(Event e in tempEvents.TempEvents)
             {

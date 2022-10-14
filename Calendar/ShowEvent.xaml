@@ -3,10 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Calendar"
+        xmlns:resources="clr-namespace:Calendar.Resources.Localization"
         mc:Ignorable="d"
-        Title="Náhled události" Height="180" Width="220" MinHeight="180" MinWidth="180" Icon="Resources\view.ico" WindowStartupLocation="CenterOwner">
-    <GroupBox Grid.Row="1" Header="Událost">
+        Title="{x:Static resources:Strings.EventView}" Height="180" Width="220" MinHeight="180" MinWidth="180" Icon="Resources\view.ico" WindowStartupLocation="CenterOwner">
+    <GroupBox Grid.Row="1" Header="{x:Static resources:Strings.Event}">
         <Grid Margin="5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -18,16 +18,16 @@
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Label Grid.Row="0" Grid.Column="0" Content="Název"/>
-            <TextBox Grid.Row="0" Grid.Column="1" x:Name="txtName" Text="Nová událost" VerticalContentAlignment="Center" Margin="0,2" IsEnabled="False"/>
+            <Label Grid.Row="0" Grid.Column="0" Content="{x:Static resources:Strings.Title}"/>
+            <TextBox Grid.Row="0" Grid.Column="1" x:Name="txtName" Text="{x:Static resources:Strings.NewEvent}" VerticalContentAlignment="Center" Margin="0,2" IsEnabled="False"/>
 
-            <Label Grid.Row="1" Grid.Column="0" Content="Datum"/>
+            <Label Grid.Row="1" Grid.Column="0" Content="{x:Static resources:Strings.Date}"/>
             <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtDate" VerticalContentAlignment="Center" Margin="0,2" IsEnabled="False"/>
 
-            <Label Grid.Row="2" Grid.Column="0" Content="Popis"/>
+            <Label Grid.Row="2" Grid.Column="0" Content="{x:Static resources:Strings.Desc}"/>
             <TextBox Grid.Row="2" Grid.Column="1" x:Name="txtDesc" VerticalContentAlignment="Center" Margin="0,2" IsEnabled="False"/>
 
-            <Label Grid.Row="3" Grid.Column="0" Content="Opakuje se"/>
+            <Label Grid.Row="3" Grid.Column="0" Content="{x:Static resources:Strings.Repeat}"/>
             <CheckBox Grid.Row="3" Grid.Column="1" Margin="2,5" x:Name="chbRepeat" IsEnabled="False"/>
         </Grid>
     </GroupBox>

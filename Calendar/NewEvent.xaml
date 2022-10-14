@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:resources="clr-namespace:Calendar.Resources.Localization"
         mc:Ignorable="d"
-        Title="Nová událost" Height="250" Width="450" MinHeight="250" MinWidth="200" Icon="Resources\add.ico"  WindowStartupLocation="CenterOwner">
+        Title="{x:Static resources:Strings.NewEvent}" Height="250" Width="450" MinHeight="250" MinWidth="200" Icon="Resources\add.ico"  WindowStartupLocation="CenterOwner">
     <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <GroupBox Grid.Row="0" Header="Přidat událost">
+        <GroupBox Grid.Row="0" Header="{x:Static resources:Strings.AddItem}">
             <Grid Margin="5">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -26,10 +26,10 @@
                     <ColumnDefinition Width="20"/>
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Label Grid.Row="0" Grid.Column="0" Content="Název"/>
+                <Label Grid.Row="0" Grid.Column="0" Content="{x:Static resources:Strings.Title}"/>
                 <TextBox Grid.Row="0" Grid.Column="1" x:Name="txtName" Text="Nová událost" VerticalContentAlignment="Center" Margin="0,2" Grid.ColumnSpan="2"/>
 
-                <Label Grid.Row="1" Grid.Column="0" Content="Datum"/>
+                <Label Grid.Row="1" Grid.Column="0" Content="{x:Static resources:Strings.Date}"/>
                 <DatePicker Grid.Row="1" Grid.Column="1" x:Name="dtPicker" VerticalContentAlignment="Center" Margin="0,2" Grid.ColumnSpan="2">
                     <DatePicker.Resources>
                         <Style TargetType="DatePickerTextBox">
@@ -38,17 +38,17 @@
                     </DatePicker.Resources>
                 </DatePicker>
 
-                <Label Grid.Row="2" Grid.Column="0" Content="Popis"/>
+                <Label Grid.Row="2" Grid.Column="0" Content="{x:Static resources:Strings.Desc}"/>
                 <TextBox Grid.Row="2" Grid.Column="1" x:Name="txtDesc" VerticalContentAlignment="Center" Margin="0,2" Grid.ColumnSpan="2"/>
 
-                <Label Grid.Row="3" Grid.Column="0" Content="Čas"/>
+                <Label Grid.Row="3" Grid.Column="0" Content="{x:Static resources:Strings.Time}"/>
                 <TextBox Grid.Row="3" Grid.Column="1" x:Name="txtHour" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="0,2" Width="20" Text="0" MaxLength="2"/>
                 <TextBox Grid.Row="3" Grid.Column="2" x:Name="txtMin" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Margin="2,2" Width="20" HorizontalAlignment="Left" Text="0" MaxLength="2"/>
 
-                <Label Grid.Row="4" Grid.Column="0" Content="Opakovat?"/>
+                <Label Grid.Row="4" Grid.Column="0" Content="{x:Static resources:Strings.Repeat}"/>
                 <CheckBox Grid.Row="4" Grid.Column="1" Margin="2,5" x:Name="chbRepeat"/>
             </Grid>
         </GroupBox>
-        <Button Grid.Row="2" Content="Potvrdit" x:Name="btnOK" HorizontalAlignment="Right" Width="80" Height="30" Click="BtnConfirm_Click" />
+        <Button Grid.Row="2" Content="{x:Static resources:Strings.Confirm}" ToolTip="{x:Static resources:Strings.Confirm}" x:Name="btnOK" HorizontalAlignment="Right" Width="80" Height="30" Click="BtnConfirm_Click" />
     </Grid>
 </Window>

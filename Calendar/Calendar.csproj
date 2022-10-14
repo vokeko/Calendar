@@ -65,6 +65,21 @@
     <Compile Include="Options.xaml.cs">
       <DependentUpon>Options.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Resources\Localization\Strings.cs.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Strings.cs.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Localization\Strings.cs1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Strings.cs.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Localization\Strings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
     <Compile Include="ShowEvent.xaml.cs">
       <DependentUpon>ShowEvent.xaml</DependentUpon>
     </Compile>
@@ -128,6 +143,14 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Localization\Strings.cs.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.cs1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Localization\Strings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

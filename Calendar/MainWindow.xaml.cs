@@ -41,7 +41,7 @@ namespace Calendar
 
             EventList.Events.Add(form.Value);
 
-            MessageBox.Show("Událost úspěšně přidána");
+            MessageBox.Show(Strings.SuccessfulAdd);
             Refresh_EventLists();
         }
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
@@ -63,7 +63,7 @@ namespace Calendar
 
             if (!form.ShowDialog().GetValueOrDefault()) return;
 
-            MessageBox.Show("Událost úspěšně upravena");
+            MessageBox.Show(Strings.SuccessfulEdit);
             Refresh_EventLists();
         }
         private void BtnRemove_Click(object sender, RoutedEventArgs e)
@@ -77,7 +77,7 @@ namespace Calendar
 
             EventList.Events.Remove(form.Value);
 
-            MessageBox.Show("Událost úspěšně vymazána");
+            MessageBox.Show(Strings.SuccessfulDelete);
             Refresh_EventLists();
         }
         private void BtnShowAll_Click(object sender, RoutedEventArgs e)
@@ -114,7 +114,7 @@ namespace Calendar
         {
             bool success = EventList.SaveData(null);
             if (!success)
-                MessageBox.Show("Chyba při ukládání dat");
+                MessageBox.Show(Strings.LoadError);
         }
 
         private void Refresh_EventLists()
@@ -141,19 +141,19 @@ namespace Calendar
         {
             ContextMenu menu = new ContextMenu();
             MenuItem item = new MenuItem();
-            item.Header = "Zobrazit záznam";
+            item.Header = Strings.ShowItem;
             //item.Icon = Properties.Resources.view;
             item.Click += Menu_View;
             menu.Items.Add(item);
 
             item = new MenuItem();
-            item.Header = "Upravit záznam";
+            item.Header = Strings.EditItem;
             //item.Icon = Properties.Resources.edit;
             item.Click += Menu_Edit;
             menu.Items.Add(item);
 
             item = new MenuItem();
-            item.Header = "Vymazat záznam";
+            item.Header = Strings.DeleteItem;
             //item.Icon = Properties.Resources.del;
             item.Click += Menu_Delete;
             menu.Items.Add(item);
@@ -175,7 +175,7 @@ namespace Calendar
             {
                 return;
             }
-            MessageBox.Show("Událost úspěšně vymazána");
+            MessageBox.Show(Strings.SuccessfulDelete);
             Refresh_EventLists();
         }
         private void Menu_Edit(object sender, RoutedEventArgs e)
@@ -202,7 +202,7 @@ namespace Calendar
 
             if (!form.ShowDialog().GetValueOrDefault()) return;
 
-            MessageBox.Show("Událost úspěšně upravena");
+            MessageBox.Show(Strings.SuccessfulEdit);
             Refresh_EventLists();
         }
         private void Menu_View(object sender, RoutedEventArgs e)

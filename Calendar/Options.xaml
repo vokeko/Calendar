@@ -3,16 +3,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:resources="clr-namespace:Calendar.Resources.Localization"
         xmlns:local="clr-namespace:Calendar"
         mc:Ignorable="d"
-        Title="Nastavení" Height="230" Width="300" MinHeight="230" MinWidth="200" WindowStartupLocation="CenterOwner" Icon="Resources/settings.ico">
+        Title="{x:Static resources:Strings.Settings}" Height="230" Width="300" MinHeight="230" MinWidth="200" WindowStartupLocation="CenterOwner" Icon="Resources/settings.ico">
     <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <TabControl Grid.Row="0">
-            <TabItem Header="Styly">
+            <TabItem Header="{x:Static resources:Strings.Styles}">
                 <Grid Margin="5">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -22,11 +23,11 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Label Content="Barva zvýraznění" Grid.Column="0" />
+                    <Label Content="{x:Static resources:Strings.HighlightColor}" Grid.Column="0" />
                     <TextBox Grid.Column="1" MaxLength="7" Text="#" VerticalAlignment="Center" x:Name="txtColor"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Lokalizace">
+            <TabItem Header="{x:Static resources:Strings.Localization}">
                 <Grid Margin="5">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -36,11 +37,11 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Label Content="Jazyk" Grid.Column="0"/>
-                    <ComboBox Grid.Column="1" VerticalAlignment="Center" x:Name="cmbLanguage"/>
+                    <Label Content="{x:Static resources:Strings.Language}" Grid.Column="0"/>
+                    <ComboBox Grid.Column="1" VerticalAlignment="Center" x:Name="cmbLanguage"  Text="{Binding DisplayName}"/>
                 </Grid>
             </TabItem>
-            <TabItem Header="Zálohování">
+            <TabItem Header="{x:Static resources:Strings.Backup}">
                 <Grid Margin="5">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -52,15 +53,15 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <Label Content="Frekvence" Grid.Row="0" Grid.Column="0" />
+                    <Label Content="{x:Static resources:Strings.Frequency}" Grid.Row="0" Grid.Column="0" />
                     <ComboBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" x:Name="cmbBackupFreq"/>
 
-                    <Label Content="Umístění" Grid.Row="1" Grid.Column="0" />
+                    <Label Content="{x:Static resources:Strings.Location}" Grid.Row="1" Grid.Column="0" />
                     <TextBox Grid.Row="1"  Grid.Column="1" IsReadOnly="True" VerticalAlignment="Center" x:Name="txtBackupPath" PreviewMouseDown="TxtBackupPath_PreviewMouseDown" />
 
                 </Grid>
             </TabItem>
-            <TabItem Header="Data">
+            <TabItem Header="{x:Static resources:Strings.Data}">
                 <Grid Margin="5">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -72,18 +73,18 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Width="80" Height="25" Margin="5" Content="Načíst data" x:Name="btnLoad" Click="BtnLoad_Click"/>
-                    <Label Grid.Row="0" Grid.Column="1" Content="Načíst data ze souboru" VerticalAlignment="Center"/>
+                    <Button Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Width="80" Height="25" Margin="5" Content="{x:Static resources:Strings.LoadData}" x:Name="btnLoad" Click="BtnLoad_Click"/>
+                    <Label Grid.Row="0" Grid.Column="1" Content="{x:Static resources:Strings.LoadDataDesc}" VerticalAlignment="Center"/>
 
-                    <Button Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Width="80" Height="25" Margin="5" Content="Uložit data" x:Name="btnSave" Click="BtnSave_Click"/>
-                    <Label Grid.Row="1" Grid.Column="1" Content="Uložit data do souboru" VerticalAlignment="Center"/>
+                    <Button Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" Width="80" Height="25" Margin="5" Content="{x:Static resources:Strings.SaveData}" x:Name="btnSave" Click="BtnSave_Click"/>
+                    <Label Grid.Row="1" Grid.Column="1" Content="{x:Static resources:Strings.SaveDataDesc}" VerticalAlignment="Center"/>
 
-                    <Button Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Width="80" Height="25" Margin="5" Content="Export dat" x:Name="btnExport" Click="BtnExport_Click"/>
-                    <Label Grid.Row="2" Grid.Column="1" Content="Exportovat data jako text" VerticalAlignment="Center" />
+                    <Button Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left" Width="80" Height="25" Margin="5" Content="{x:Static resources:Strings.Export}" x:Name="btnExport" Click="BtnExport_Click"/>
+                    <Label Grid.Row="2" Grid.Column="1" Content="{x:Static resources:Strings.ExportDesc}" VerticalAlignment="Center" />
                 </Grid>
             </TabItem>
         </TabControl>
 
-        <Button Grid.Row="3" Width="80" Height="25" Margin="5"  Content="Potvrdit" x:Name="btnConfirm" Click="BtnConfirm_Click"/>
+        <Button Grid.Row="3" Width="80" Height="25" Margin="5"  Content="{x:Static resources:Strings.Confirm}" ToolTip="{x:Static resources:Strings.Confirm}" x:Name="btnConfirm" Click="BtnConfirm_Click"/>
     </Grid>
 </Window>

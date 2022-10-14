@@ -3,9 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Calendar"
+        xmlns:resources="clr-namespace:Calendar.Resources.Localization"
         mc:Ignorable="d"
-        Title="Prohlížení kalendáře" Height="220" Width="400" MinHeight="220" MinWidth="380" MaxWidth="400" MaxHeight="250" Loaded="Window_Loaded" Icon="Resources\view.ico"  WindowStartupLocation="CenterOwner">
+        Title="{x:Static resources:Strings.CalendarBrowse}" Height="220" Width="400" MinHeight="220" MinWidth="380" MaxWidth="400" MaxHeight="250" Loaded="Window_Loaded" Icon="Resources\view.ico"  WindowStartupLocation="CenterOwner">
     <Grid Margin="5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -18,14 +18,14 @@
                 </Style>
             </Calendar.CalendarDayButtonStyle>
         </Calendar>
-        <GroupBox Grid.Column="1" Header="Zvolené datum">
+        <GroupBox Grid.Column="1" Header="{x:Static resources:Strings.ChosenDate}">
             <Grid Margin="5">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="20" />
                     <RowDefinition />
                     <RowDefinition Height="30"/>
                 </Grid.RowDefinitions>
-                <Label Content="Události dne:" Grid.Row="0" FontSize="9"/>
+                <Label Content="{x:Static resources:Strings.EventsDay}" Grid.Row="0" FontSize="9"/>
                 <ListBox x:Name="lstChosenDate" MouseDoubleClick="LstChosenDate_MouseDoubleClick" Grid.Row="1">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
@@ -38,9 +38,9 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
                 <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="0,4">
-                    <Button x:Name="btnAdd" Width="20" Height="20" Margin="2,0,2,0" ToolTip="Přidat událost" Click="BtnAdd_Click"><Image Source="Resources/add.ico"/></Button>
-                    <Button x:Name="btnEdit" Width="20" Height="20" Margin="0,0,2,0" ToolTip="Upravit událost" Click="BtnEdit_Click"><Image Source="Resources/edit.ico"/></Button>
-                    <Button x:Name="btnRemove" Width="20" Height="20" Margin="0,0,10,0" ToolTip="Odstranit událost" Click="BtnRemove_Click"><Image Source="Resources/del.ico"/></Button>
+                    <Button x:Name="btnAdd" Width="20" Height="20" Margin="2,0,2,0" ToolTip="{x:Static resources:Strings.AddItem}" Click="BtnAdd_Click"><Image Source="Resources/add.ico"/></Button>
+                    <Button x:Name="btnEdit" Width="20" Height="20" Margin="0,0,2,0" ToolTip="{x:Static resources:Strings.EditItem}" Click="BtnEdit_Click"><Image Source="Resources/edit.ico"/></Button>
+                    <Button x:Name="btnRemove" Width="20" Height="20" Margin="0,0,10,0" ToolTip="{x:Static resources:Strings.DeleteItem}" Click="BtnRemove_Click"><Image Source="Resources/del.ico"/></Button>
                 </StackPanel>
             </Grid>
         </GroupBox>

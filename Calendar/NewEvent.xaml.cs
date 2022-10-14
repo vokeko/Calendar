@@ -54,9 +54,9 @@ namespace Calendar
             if (Value == null)
             {
                 if (string.IsNullOrWhiteSpace(txtName.Text))
-                    errors.AppendLine("Vyplňte název");
+                    errors.AppendLine(Strings.EnterTitle);
                 if (!dtPicker.SelectedDate.HasValue)
-                    errors.AppendLine("Vyberte datum");
+                    errors.AppendLine(Strings.EnterDate);
                 if (string.IsNullOrWhiteSpace(txtHour.Text))
                     txtHour.Text = "0";
                 if (string.IsNullOrWhiteSpace(txtMin.Text))
@@ -72,10 +72,10 @@ namespace Calendar
                 if (success)
                 {
                     if (intMin < 0 || intMin > 59)
-                        errors.AppendLine("Čas minut musí být v rozmezí 0-59");
+                        errors.AppendLine(Strings.MinutesRange);
                 }
                 else
-                    errors.AppendLine("Čas minut musí být číslo");
+                    errors.AppendLine(Strings.MinutesNaN);
             }
 
             if (!string.IsNullOrWhiteSpace(txtHour.Text))
@@ -84,16 +84,16 @@ namespace Calendar
                 if (success)
                 {
                     if (intHour < 0 || intHour > 23)
-                        errors.AppendLine("Čas hodin musí být v rozmezí 0-23");
+                        errors.AppendLine(Strings.HoursRange);
                 }
                 else
-                    errors.AppendLine("Čas hodin musí být číslo");
+                    errors.AppendLine(Strings.HoursNaN);
             }
 
             if (dtPicker.SelectedDate.HasValue)
             {
                 if (dtPicker.SelectedDate.Value < DateTime.Today)
-                    errors.AppendLine("Vybrané datum nemůže být starší než dnešní datum");
+                    errors.AppendLine(Strings.OlderThanToday);
             }
 
             if (errors.Length == 0)
@@ -103,9 +103,9 @@ namespace Calendar
                 int tempMin = txtMin.Text == null ? Value.Date.Minute : intMin;
                 bool fSuccess = DateTime.TryParse(new DateTime(tempdt.Year, tempdt.Month, tempdt.Day, tempHour, tempMin, 0).ToString(), out DateTime tempDt);
                 if (!fSuccess)
-                    errors.AppendLine("Chybné datum!");
+                    errors.AppendLine(Strings.WrongDate);
                 else if (tempDt < DateTime.Now)
-                    errors.AppendLine("Celkový čas nemůže být starší než dnešní čas");
+                    errors.AppendLine(Strings.OlderThanNow);
             }
 
             if (errors.Length > 0)

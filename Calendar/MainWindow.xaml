@@ -3,9 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Calendar"
+        xmlns:resources="clr-namespace:Calendar.Resources.Localization"
         mc:Ignorable="d"
-        Title="Kalendář" Height="240" Width="300" MinHeight="200" MinWidth="220" Loaded="Window_Loaded" Closing="Window_Closing" WindowStartupLocation="CenterScreen">
+        Title="{x:Static resources:Strings.Calendar}" Height="240" Width="300" MinHeight="200" MinWidth="220" Loaded="Window_Loaded" Closing="Window_Closing" WindowStartupLocation="CenterScreen">
     <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -18,9 +18,9 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Label x:Name="lblTime" Grid.Row="0" Content="1.1.2020 12:00" HorizontalContentAlignment="Center" FontSize="20" Grid.ColumnSpan="2"/>
-        <Label x:Name="lblDay" Grid.Row="1" Content="Pondělí" HorizontalContentAlignment="Center" FontSize="15" Grid.ColumnSpan="2"/>
-        <GroupBox Header="Dnes" Grid.Row="2" Grid.Column="0">
+        <Label x:Name="lblTime" Grid.Row="0" Content="" HorizontalContentAlignment="Center" FontSize="20" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblDay" Grid.Row="1" Content="" HorizontalContentAlignment="Center" FontSize="15" Grid.ColumnSpan="2"/>
+        <GroupBox Header="{x:Static resources:Strings.Today}" Grid.Row="2" Grid.Column="0">
             <Grid Margin="5">
                 <ListBox x:Name="lstTodayEvents" MouseDoubleClick="Lst_DoubleClick">
                     <ListBox.ItemTemplate>
@@ -35,7 +35,7 @@
                 </ListBox>
             </Grid>
         </GroupBox>
-        <GroupBox Header="V příštím týdnu" Grid.Row="2" Grid.Column="1">
+        <GroupBox Header="{x:Static resources:Strings.NextWeek}" Grid.Row="2" Grid.Column="1">
             <Grid Margin="5">
                 <ListBox x:Name="lstNextEvents" MouseDoubleClick="Lst_DoubleClick">
                     <ListBox.ItemTemplate>
@@ -51,11 +51,11 @@
             </Grid>
         </GroupBox>
         <StackPanel Grid.Row="4" Orientation="Horizontal" Margin="0,4">
-            <Button x:Name="btnAdd" Width="20" Height="20" Margin="2,0,2,0" ToolTip="Přidat událost" Click="BtnAdd_Click"><Image Source="Resources/add.ico"/></Button>
-            <Button x:Name="btnEdit" Width="20" Height="20" Margin="0,0,2,0" ToolTip="Upravit událost" Click="BtnEdit_Click"><Image Source="Resources/edit.ico"/></Button>
-            <Button x:Name="btnRemove" Width="20" Height="20" Margin="0,0,10,0" ToolTip="Odstranit událost" Click="BtnRemove_Click"><Image Source="Resources/del.ico"/></Button>
-            <Button x:Name="btnShowAll" Width="20" Height="20" Margin="0,0,2,0" ToolTip="Zobrazit události" Click="BtnShowAll_Click"><Image Source="Resources/view.ico"/></Button>
-            <Button x:Name="btnSettings" Width="20" Height="20" Margin="0,0,2,0" ToolTip="Nastavení" Click="BtnSettings_Click"><Image Source="Resources/settings.ico"/></Button>
+            <Button x:Name="btnAdd" Width="20" Height="20" Margin="2,0,2,0" ToolTip="{x:Static resources:Strings.AddItem}" Click="BtnAdd_Click"><Image Source="Resources/add.ico"/></Button>
+            <Button x:Name="btnEdit" Width="20" Height="20" Margin="0,0,2,0" ToolTip="{x:Static resources:Strings.EditItem}" Click="BtnEdit_Click"><Image Source="Resources/edit.ico"/></Button>
+            <Button x:Name="btnRemove" Width="20" Height="20" Margin="0,0,10,0" ToolTip="{x:Static resources:Strings.DeleteItem}" Click="BtnRemove_Click"><Image Source="Resources/del.ico"/></Button>
+            <Button x:Name="btnShowAll" Width="20" Height="20" Margin="0,0,2,0" ToolTip="{x:Static resources:Strings.ShowAll}" Click="BtnShowAll_Click"><Image Source="Resources/view.ico"/></Button>
+            <Button x:Name="btnSettings" Width="20" Height="20" Margin="0,0,2,0" ToolTip="{x:Static resources:Strings.Settings}" Click="BtnSettings_Click"><Image Source="Resources/settings.ico"/></Button>
         </StackPanel>
     </Grid>
 </Window>

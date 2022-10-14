@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AddItem" xml:space="preserve">
+    <value>Přidat událost</value>
+  </data>
+  <data name="Backup" xml:space="preserve">
+    <value>Zálohování</value>
+  </data>
+  <data name="BackupPath" xml:space="preserve">
+    <value>Cesta zálohování</value>
+  </data>
+  <data name="Calendar" xml:space="preserve">
+    <value>Kalendář</value>
+  </data>
+  <data name="CalendarBrowse" xml:space="preserve">
+    <value>Prohlížení kalendáře</value>
+  </data>
+  <data name="ChooseEvent" xml:space="preserve">
+    <value>Vybrat událost</value>
+  </data>
+  <data name="ChosenDate" xml:space="preserve">
+    <value>Zvolené datum</value>
+  </data>
+  <data name="ChosenEvent" xml:space="preserve">
+    <value>Vybraná událost</value>
+  </data>
+  <data name="Color" xml:space="preserve">
+    <value>Barva</value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>Potvrdit</value>
+  </data>
+  <data name="Data" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Datum</value>
+  </data>
+  <data name="DeleteItem" xml:space="preserve">
+    <value>Vymazat událost</value>
+  </data>
+  <data name="Desc" xml:space="preserve">
+    <value>Popis</value>
+  </data>
+  <data name="EditItem" xml:space="preserve">
+    <value>Upravit událost</value>
+  </data>
+  <data name="EmptyString" xml:space="preserve">
+    <value>nemůže být prázdný</value>
+  </data>
+  <data name="EnterDate" xml:space="preserve">
+    <value>Prosím vyberte datum</value>
+  </data>
+  <data name="EnterTitle" xml:space="preserve">
+    <value>Prosím zadejte název</value>
+  </data>
+  <data name="Event" xml:space="preserve">
+    <value>Událost</value>
+  </data>
+  <data name="EventsDay" xml:space="preserve">
+    <value>Události dne:</value>
+  </data>
+  <data name="EventView" xml:space="preserve">
+    <value>Náhled události</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Export dat</value>
+  </data>
+  <data name="ExportDesc" xml:space="preserve">
+    <value>Exportovat data jako text</value>
+  </data>
+  <data name="FaultyObject" xml:space="preserve">
+    <value>Nekompatibilní datový objekt</value>
+  </data>
+  <data name="Frequency" xml:space="preserve">
+    <value>Frekvence</value>
+  </data>
+  <data name="HighlightColor" xml:space="preserve">
+    <value>Barva zvýraznění</value>
+  </data>
+  <data name="HoursNaN" xml:space="preserve">
+    <value>Čas hodin musí být číslo</value>
+  </data>
+  <data name="HoursRange" xml:space="preserve">
+    <value>Čas hodin musí být v rozmezí 0-23</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Jazyk</value>
+  </data>
+  <data name="LoadData" xml:space="preserve">
+    <value>Načíst data</value>
+  </data>
+  <data name="LoadDataDesc" xml:space="preserve">
+    <value>Načíst data ze souboru</value>
+  </data>
+  <data name="LoadError" xml:space="preserve">
+    <value>Chyba při ukládání dat</value>
+  </data>
+  <data name="Localization" xml:space="preserve">
+    <value>Lokalizace</value>
+  </data>
+  <data name="Location" xml:space="preserve">
+    <value>Umístění</value>
+  </data>
+  <data name="MinutesNaN" xml:space="preserve">
+    <value>Čas minut musí být číslo</value>
+  </data>
+  <data name="MinutesRange" xml:space="preserve">
+    <value>Čas minut musí být v rozmezí 0-59</value>
+  </data>
+  <data name="NewEvent" xml:space="preserve">
+    <value>Nová událost</value>
+  </data>
+  <data name="NewObject" xml:space="preserve">
+    <value>Nový datový objekt úspěšně založen</value>
+  </data>
+  <data name="NextWeek" xml:space="preserve">
+    <value>V tomto týdnu</value>
+  </data>
+  <data name="OlderThanNow" xml:space="preserve">
+    <value>Celkový čas nemůže být starší než dnešní čas</value>
+  </data>
+  <data name="OlderThanToday" xml:space="preserve">
+    <value>Vybrané datum nemůže být starší než dnešní datum</value>
+  </data>
+  <data name="Repeat" xml:space="preserve">
+    <value>Opakovat?</value>
+  </data>
+  <data name="SaveData" xml:space="preserve">
+    <value>Uložit data</value>
+  </data>
+  <data name="SaveDataDesc" xml:space="preserve">
+    <value>Uložit data do souboru</value>
+  </data>
+  <data name="SaveError" xml:space="preserve">
+    <value>Chyba při ukládání dat</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Nastavení</value>
+  </data>
+  <data name="ShowAll" xml:space="preserve">
+    <value>Zobrazit všechny události</value>
+  </data>
+  <data name="ShowItem" xml:space="preserve">
+    <value>Zobrazit událost</value>
+  </data>
+  <data name="Styles" xml:space="preserve">
+    <value>Styly</value>
+  </data>
+  <data name="SuccessfulAdd" xml:space="preserve">
+    <value>Událost úspěšně přidána</value>
+  </data>
+  <data name="SuccessfulDelete" xml:space="preserve">
+    <value>Událost úspěšně vymazána</value>
+  </data>
+  <data name="SuccessfulEdit" xml:space="preserve">
+    <value>Událost úspěšně upravena</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Čas</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Název</value>
+  </data>
+  <data name="Today" xml:space="preserve">
+    <value>Dnes</value>
+  </data>
+  <data name="WrongDate" xml:space="preserve">
+    <value>Chybné datum!</value>
+  </data>
+</root>
