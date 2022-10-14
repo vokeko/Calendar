@@ -6,7 +6,6 @@ using System.Text;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Windows.Media;
-using System.Threading;
 using System.Globalization;
 using Microsoft.Win32;
 
