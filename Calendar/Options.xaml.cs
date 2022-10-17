@@ -4,6 +4,7 @@ using System.Windows.Input;
 using System.Collections.Generic;
 using System.Globalization;
 using Microsoft.Win32;
+using System.Linq;
 using Calendar.Resources.Localization;
 
 namespace Calendar
@@ -13,20 +14,28 @@ namespace Calendar
     /// </summary>
     public partial class Options : Window
     {
-        public List<CultureInfo> cultures { get; private set; } = new List<CultureInfo>();
+        private List<CultureInfo> cultures { get; set; } = new List<CultureInfo>();
 
         public Options()
         {
             InitializeComponent();
+            Dictionary<EventList.BackupFrequency, string> dicFreq = new Dictionary<EventList.BackupFrequency, string>();
+            foreach(EventList.BackupFrequency enumFreq in Enum.GetValues(typeof(EventList.BackupFrequency)))
+            {
+                dicFreq.Add(enumFreq, enumFreq.GetFrequencyString());
+            }
 
-            cmbBackupFreq.ItemsSource = Enum.GetValues(typeof(EventList.BackupFrequency));
-            cmbBackupFreq.SelectedIndex = 0;
+            cmbBackupFreq.ItemsSource = dicFreq;
+            cmbBackupFreq.SelectedValuePath = "Key";
+            cmbBackupFreq.DisplayMemberPath = "Value";
+            cmbBackupFreq.SelectedValue = EventList.BackupFreq;
 
-            cultures.Add(new CultureInfo("en"));
-            cultures.Add(new CultureInfo("cs"));
+            cultures.Add(new CultureInfo("en-US"));
+            cultures.Add(new CultureInfo("cs-CZ"));
 
             cmbLanguage.ItemsSource = cultures;
-            //cmbLanguage.SelectedIndex = 0;
+            cmbLanguage.DisplayMemberPath = "DisplayName";
+            cmbLanguage.SelectedItem = CultureInfo.CurrentCulture;
         }
 
         private void BtnLoad_Click(object sender, RoutedEventArgs e)
@@ -62,8 +71,16 @@ namespace Calendar
         private void BtnConfirm_Click(object sender, RoutedEventArgs e)
         {
             EventList.SetBrush(txtColor.Text);
-            EventList.SetBackupInfo((EventList.BackupFrequency)cmbBackupFreq.SelectedItem, txtBackupPath.Text);
-            
+            EventList.SetBackupInfo((EventList.BackupFrequency)cmbBackupFreq.SelectedValue, txtBackupPath.Text);
+            CultureInfo selectedCulture = (CultureInfo)cmbLanguage.SelectedItem;
+
+            if (cultures.Any(x => x.LCID == selectedCulture.LCID))
+            {
+                CultureInfo.CurrentCulture = selectedCulture;
+                CultureInfo.DefaultThreadCurrentCulture = selectedCulture;
+                CultureInfo.CurrentUICulture = selectedCulture;
+            }
+
             this.Close();
         }
     }

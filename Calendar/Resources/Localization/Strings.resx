@@ -147,6 +147,9 @@
   <data name="Confirm" xml:space="preserve">
     <value>Confirm</value>
   </data>
+  <data name="Daily" xml:space="preserve">
+    <value>Daily</value>
+  </data>
   <data name="Data" xml:space="preserve">
     <value>Data</value>
   </data>
@@ -192,7 +195,7 @@
   <data name="Frequency" xml:space="preserve">
     <value>Frequency</value>
   </data>
-  <data name="HighlightColor" xml:space="preserve">
+  <data name="Highlight" xml:space="preserve">
     <value>Highlight color</value>
   </data>
   <data name="HoursNaN" xml:space="preserve">
@@ -225,6 +228,9 @@
   <data name="MinutesRange" xml:space="preserve">
     <value>Minutes have to be between 0-59</value>
   </data>
+  <data name="Monthly" xml:space="preserve">
+    <value>Monthly</value>
+  </data>
   <data name="NewEvent" xml:space="preserve">
     <value>New event</value>
   </data>
@@ -234,11 +240,17 @@
   <data name="NextWeek" xml:space="preserve">
     <value>This week</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>None</value>
+  </data>
   <data name="OlderThanNow" xml:space="preserve">
     <value>Total time can't be greater than current time</value>
   </data>
   <data name="OlderThanToday" xml:space="preserve">
     <value>Chosen date can't be greater than today</value>
+  </data>
+  <data name="Quarterly" xml:space="preserve">
+    <value>Quarterly</value>
   </data>
   <data name="Repeat" xml:space="preserve">
     <value>Repeat?</value>
@@ -282,7 +294,13 @@
   <data name="Today" xml:space="preserve">
     <value>Today</value>
   </data>
+  <data name="Weekly" xml:space="preserve">
+    <value>Weekly</value>
+  </data>
   <data name="WrongDate" xml:space="preserve">
     <value>Wrong date!</value>
+  </data>
+  <data name="Yearly" xml:space="preserve">
+    <value>Yearly</value>
   </data>
 </root>

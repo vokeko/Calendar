@@ -112,7 +112,6 @@ namespace Calendar
                 button.Background = EventList.HighlightBrush;
             else
                 button.Background = Brushes.Transparent;
-            //(SolidColorBrush)new BrushConverter().ConvertFrom("#eeeeee");
         }
 
         private void CalendarButton_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)

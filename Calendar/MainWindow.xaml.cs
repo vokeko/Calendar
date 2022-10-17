@@ -98,6 +98,13 @@ namespace Calendar
             }
             form.Owner = this;
             form.ShowDialog();
+
+            CultureInfo.CurrentCulture = CultureInfo.CurrentCulture;
+            CultureInfo.DefaultThreadCurrentCulture = CultureInfo.CurrentCulture;
+            CultureInfo.CurrentUICulture = CultureInfo.CurrentCulture;
+            this.Title = Strings.Calendar;
+            this.headerToday.Header = Strings.Today;
+            this.headerWeek.Header = Strings.Weekly;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)

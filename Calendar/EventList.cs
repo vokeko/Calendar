@@ -16,10 +16,8 @@ namespace Calendar
     {
         public static List<Event> Events { get; private set; } = new List<Event>();
         internal static SolidColorBrush HighlightBrush { get; private set; } = Brushes.Pink;
-        private static CultureInfo Language { get; set; } = CultureInfo.CurrentCulture;
-
         private static string BackupPath { get; set; } = null;
-        private static BackupFrequency BackupFreq { get; set; } = BackupFrequency.None;
+        internal static BackupFrequency BackupFreq { get; private set; } = BackupFrequency.None;
         private static DateTime LastBackup { get; set; } = default;
 
         internal static string LoadData(string filePath)
@@ -41,8 +39,9 @@ namespace Calendar
                             case BinaryTempEvents data:
                                 Events.AddRange(data.TempEvents);
                                 SetBrush(data.TempBrush);
-                                Language = data.Culture;
-                                CultureInfo.DefaultThreadCurrentCulture = Language;
+                                CultureInfo.CurrentCulture = data.Culture;
+                                CultureInfo.CurrentUICulture = data.Culture;
+                                CultureInfo.DefaultThreadCurrentCulture = data.Culture;
                                 BackupFreq = data.TempBackupFreq;
                                 BackupPath = data.TempBackupPath;
                                 LastBackup = data.TempLastBackup;
@@ -165,7 +164,6 @@ namespace Calendar
             if (tempbrush.IsValidHexCode()) 
                 HighlightBrush = (SolidColorBrush)new BrushConverter().ConvertFrom(tempbrush);
         }
-
         private static string ToText()
         {
             BinaryTempEvents tempEvents = new BinaryTempEvents();
@@ -225,7 +223,7 @@ namespace Calendar
             {
                 TempEvents = Events;
                 TempBrush = HighlightBrush.Color.ToString();
-                Culture = Language;
+                Culture = CultureInfo.CurrentCulture;
                 TempBackupFreq = BackupFreq;
                 TempBackupPath = BackupPath;
                 TempLastBackup = LastBackup;

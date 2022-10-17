@@ -19,7 +19,7 @@ namespace Calendar.Resources.Localization {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Strings {
@@ -147,6 +147,15 @@ namespace Calendar.Resources.Localization {
         public static string Confirm {
             get {
                 return ResourceManager.GetString("Confirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Daily.
+        /// </summary>
+        public static string Daily {
+            get {
+                return ResourceManager.GetString("Daily", resourceCulture);
             }
         }
         
@@ -288,9 +297,9 @@ namespace Calendar.Resources.Localization {
         /// <summary>
         ///   Looks up a localized string similar to Highlight color.
         /// </summary>
-        public static string HighlightColor {
+        public static string Highlight {
             get {
-                return ResourceManager.GetString("HighlightColor", resourceCulture);
+                return ResourceManager.GetString("Highlight", resourceCulture);
             }
         }
         
@@ -385,6 +394,15 @@ namespace Calendar.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Monthly.
+        /// </summary>
+        public static string Monthly {
+            get {
+                return ResourceManager.GetString("Monthly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New event.
         /// </summary>
         public static string NewEvent {
@@ -412,6 +430,15 @@ namespace Calendar.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to None.
+        /// </summary>
+        public static string None {
+            get {
+                return ResourceManager.GetString("None", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Total time can&apos;t be greater than current time.
         /// </summary>
         public static string OlderThanNow {
@@ -426,6 +453,15 @@ namespace Calendar.Resources.Localization {
         public static string OlderThanToday {
             get {
                 return ResourceManager.GetString("OlderThanToday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quarterly.
+        /// </summary>
+        public static string Quarterly {
+            get {
+                return ResourceManager.GetString("Quarterly", resourceCulture);
             }
         }
         
@@ -556,11 +592,29 @@ namespace Calendar.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Weekly.
+        /// </summary>
+        public static string Weekly {
+            get {
+                return ResourceManager.GetString("Weekly", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Wrong date!.
         /// </summary>
         public static string WrongDate {
             get {
                 return ResourceManager.GetString("WrongDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yearly.
+        /// </summary>
+        public static string Yearly {
+            get {
+                return ResourceManager.GetString("Yearly", resourceCulture);
             }
         }
     }

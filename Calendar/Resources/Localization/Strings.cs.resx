@@ -147,6 +147,9 @@
   <data name="Confirm" xml:space="preserve">
     <value>Potvrdit</value>
   </data>
+  <data name="Daily" xml:space="preserve">
+    <value>Denně</value>
+  </data>
   <data name="Data" xml:space="preserve">
     <value>Data</value>
   </data>
@@ -192,7 +195,7 @@
   <data name="Frequency" xml:space="preserve">
     <value>Frekvence</value>
   </data>
-  <data name="HighlightColor" xml:space="preserve">
+  <data name="Highlight" xml:space="preserve">
     <value>Barva zvýraznění</value>
   </data>
   <data name="HoursNaN" xml:space="preserve">
@@ -225,6 +228,9 @@
   <data name="MinutesRange" xml:space="preserve">
     <value>Čas minut musí být v rozmezí 0-59</value>
   </data>
+  <data name="Monthly" xml:space="preserve">
+    <value>Měsíčně</value>
+  </data>
   <data name="NewEvent" xml:space="preserve">
     <value>Nová událost</value>
   </data>
@@ -234,11 +240,17 @@
   <data name="NextWeek" xml:space="preserve">
     <value>V tomto týdnu</value>
   </data>
+  <data name="None" xml:space="preserve">
+    <value>Vůbec</value>
+  </data>
   <data name="OlderThanNow" xml:space="preserve">
     <value>Celkový čas nemůže být starší než dnešní čas</value>
   </data>
   <data name="OlderThanToday" xml:space="preserve">
     <value>Vybrané datum nemůže být starší než dnešní datum</value>
+  </data>
+  <data name="Quarterly" xml:space="preserve">
+    <value>Čtvrtročně</value>
   </data>
   <data name="Repeat" xml:space="preserve">
     <value>Opakovat?</value>
@@ -282,7 +294,13 @@
   <data name="Today" xml:space="preserve">
     <value>Dnes</value>
   </data>
+  <data name="Weekly" xml:space="preserve">
+    <value>Týdně</value>
+  </data>
   <data name="WrongDate" xml:space="preserve">
     <value>Chybné datum!</value>
+  </data>
+  <data name="Yearly" xml:space="preserve">
+    <value>Ročně</value>
   </data>
 </root>

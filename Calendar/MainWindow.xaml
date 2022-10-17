@@ -20,7 +20,7 @@
         </Grid.ColumnDefinitions>
         <Label x:Name="lblTime" Grid.Row="0" Content="" HorizontalContentAlignment="Center" FontSize="20" Grid.ColumnSpan="2"/>
         <Label x:Name="lblDay" Grid.Row="1" Content="" HorizontalContentAlignment="Center" FontSize="15" Grid.ColumnSpan="2"/>
-        <GroupBox Header="{x:Static resources:Strings.Today}" Grid.Row="2" Grid.Column="0">
+        <GroupBox Header="{x:Static resources:Strings.Today}" x:Name="headerToday" Grid.Row="2" Grid.Column="0">
             <Grid Margin="5">
                 <ListBox x:Name="lstTodayEvents" MouseDoubleClick="Lst_DoubleClick">
                     <ListBox.ItemTemplate>
@@ -35,7 +35,7 @@
                 </ListBox>
             </Grid>
         </GroupBox>
-        <GroupBox Header="{x:Static resources:Strings.NextWeek}" Grid.Row="2" Grid.Column="1">
+        <GroupBox Header="{x:Static resources:Strings.NextWeek}" x:Name="headerWeek" Grid.Row="2" Grid.Column="1">
             <Grid Margin="5">
                 <ListBox x:Name="lstNextEvents" MouseDoubleClick="Lst_DoubleClick">
                     <ListBox.ItemTemplate>

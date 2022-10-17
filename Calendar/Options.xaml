@@ -23,7 +23,7 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Label Content="{x:Static resources:Strings.HighlightColor}" Grid.Column="0" />
+                    <Label Content="{x:Static resources:Strings.Highlight}" Grid.Column="0" />
                     <TextBox Grid.Column="1" MaxLength="7" Text="#" VerticalAlignment="Center" x:Name="txtColor"/>
                 </Grid>
             </TabItem>
@@ -38,7 +38,7 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <Label Content="{x:Static resources:Strings.Language}" Grid.Column="0"/>
-                    <ComboBox Grid.Column="1" VerticalAlignment="Center" x:Name="cmbLanguage"  Text="{Binding DisplayName}"/>
+                    <ComboBox Grid.Column="1" VerticalAlignment="Center" x:Name="cmbLanguage"/>
                 </Grid>
             </TabItem>
             <TabItem Header="{x:Static resources:Strings.Backup}">

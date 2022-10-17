@@ -33,5 +33,17 @@ namespace Calendar
 
             return true;
         }
+        internal static string GetFrequencyString(this EventList.BackupFrequency input)
+        {
+            switch (input)
+            {
+                case EventList.BackupFrequency.Daily: return Strings.Daily;
+                case EventList.BackupFrequency.Weekly: return Strings.Weekly;
+                case EventList.BackupFrequency.Monthly: return Strings.Monthly;
+                case EventList.BackupFrequency.Quarterly: return Strings.Quarterly;
+                case EventList.BackupFrequency.Yearly: return Strings.Yearly;
+                case EventList.BackupFrequency.None: default: return Strings.None;
+            }
+        }
     }
 }
