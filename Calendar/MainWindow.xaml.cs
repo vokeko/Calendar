@@ -98,13 +98,6 @@ namespace Calendar
             }
             form.Owner = this;
             form.ShowDialog();
-
-            CultureInfo.CurrentCulture = CultureInfo.CurrentCulture;
-            CultureInfo.DefaultThreadCurrentCulture = CultureInfo.CurrentCulture;
-            CultureInfo.CurrentUICulture = CultureInfo.CurrentCulture;
-            this.Title = Strings.Calendar;
-            this.headerToday.Header = Strings.Today;
-            this.headerWeek.Header = Strings.Weekly;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -113,6 +106,7 @@ namespace Calendar
             string chyba = EventList.LoadData(null);
             if (chyba != null)
                 MessageBox.Show(chyba);
+            Refresh_Localization(CultureInfo.CurrentCulture);
             Refresh_EventLists();
             SetButtons();
             EventList.FileBackup();
@@ -129,6 +123,22 @@ namespace Calendar
             EventList.SortEvents();
             lstTodayEvents.ItemsSource = EventList.Events.Where(x => x.Date >= DateTime.Today && x.Date < DateTime.Today.AddDays(1)).ToList();
             lstNextEvents.ItemsSource = EventList.Events.Where(x => x.Date >= DateTime.Today.AddDays(1) && x.Date < DateTime.Today.AddDays(6)).ToList();
+        }
+        private void Refresh_Localization(CultureInfo culture)
+        {
+            CultureInfo.CurrentCulture = culture;
+            CultureInfo.CurrentUICulture = culture;
+            CultureInfo.DefaultThreadCurrentCulture = culture;
+            CultureInfo.DefaultThreadCurrentUICulture = culture;
+
+            this.Title = Strings.Calendar;
+            this.headerToday.Header = Strings.Today;
+            this.headerWeek.Header = Strings.NextWeek;
+            this.btnAdd.ToolTip = Strings.AddItem;
+            this.btnEdit.ToolTip = Strings.EditItem;
+            this.btnRemove.ToolTip = Strings.DeleteItem;
+            this.btnSettings.ToolTip = Strings.Settings;
+            this.btnShowAll.ToolTip = Strings.ShowAll;
         }
 
         private void Lst_DoubleClick(object sender, MouseButtonEventArgs e)

@@ -88,7 +88,7 @@ namespace Calendar
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Title = Strings.Export;
             saveFileDialog.DefaultExt = "txt";
-            saveFileDialog.Filter = "txt files (*.txt)|*.txt";
+            saveFileDialog.Filter = Strings.TxtExtension + " (*.txt)|*.txt";
             saveFileDialog.CheckPathExists = true;
 
             if (saveFileDialog.ShowDialog().GetValueOrDefault())
@@ -103,11 +103,11 @@ namespace Calendar
 
         internal static void SaveDataAs()
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog() 
+            SaveFileDialog saveFileDialog = new SaveFileDialog()
             {
                 Title = Strings.SaveData,
                 DefaultExt = "bin",
-                Filter = "*.bin|*.bin",
+                Filter = Strings.BinExtension + " *.bin|*.bin",
                 CheckPathExists = true,
                 FileName = "events.bin",
             };
@@ -125,7 +125,7 @@ namespace Calendar
             {
                 Title = Strings.LoadData,
                 DefaultExt = "bin",
-                Filter = "*.bin|*.bin",
+                Filter = Strings.BinExtension + " *.bin|*.bin",
                 CheckPathExists = true,
                 FileName = "events.bin",
             };

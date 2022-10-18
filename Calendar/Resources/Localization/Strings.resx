@@ -126,6 +126,9 @@
   <data name="BackupPath" xml:space="preserve">
     <value>Backup path</value>
   </data>
+  <data name="BinExtension" xml:space="preserve">
+    <value>Binary files</value>
+  </data>
   <data name="Calendar" xml:space="preserve">
     <value>Calendar</value>
   </data>
@@ -293,6 +296,9 @@
   </data>
   <data name="Today" xml:space="preserve">
     <value>Today</value>
+  </data>
+  <data name="TxtExtension" xml:space="preserve">
+    <value>Text files</value>
   </data>
   <data name="Weekly" xml:space="preserve">
     <value>Weekly</value>
