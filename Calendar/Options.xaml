@@ -24,7 +24,7 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <Label Content="{x:Static resources:Strings.Highlight}" Grid.Column="0" />
-                    <TextBox Grid.Column="1" MaxLength="7" Text="#" VerticalAlignment="Center" x:Name="txtColor"/>
+                    <TextBox Grid.Column="1" MaxLength="7" Text="#" VerticalAlignment="Center" x:Name="txtColor" PreviewMouseDown="txtColor_PreviewMouseDown" Cursor="Hand" IsReadOnly="True"/>
                 </Grid>
             </TabItem>
             <TabItem Header="{x:Static resources:Strings.Localization}">
@@ -57,7 +57,7 @@
                     <ComboBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" x:Name="cmbBackupFreq"/>
 
                     <Label Content="{x:Static resources:Strings.Location}" Grid.Row="1" Grid.Column="0" />
-                    <TextBox Grid.Row="1"  Grid.Column="1" IsReadOnly="True" VerticalAlignment="Center" x:Name="txtBackupPath" PreviewMouseDown="TxtBackupPath_PreviewMouseDown" />
+                    <TextBox Grid.Row="1"  Grid.Column="1" IsReadOnly="True" VerticalAlignment="Center" x:Name="txtBackupPath" PreviewMouseDown="TxtBackupPath_PreviewMouseDown" Cursor="Hand" />
 
                 </Grid>
             </TabItem>

@@ -37,7 +37,7 @@ namespace Calendar
             cmbLanguage.DisplayMemberPath = "DisplayName";
             cmbLanguage.SelectedItem = CultureInfo.CurrentCulture;
 
-            txtColor.Text = EventList.HighlightBrush.ToString();
+            txtColor.Text = EventList.HighlightBrush.ToString().Substring(2);
         }
 
         private void BtnLoad_Click(object sender, RoutedEventArgs e)
@@ -59,7 +59,7 @@ namespace Calendar
             {
                 Title = Strings.BackupPath,
                 DefaultExt = "bin",
-                Filter = "*.bin|*.bin",
+                Filter = Strings.BinExtension + " *.bin|*.bin",
                 CheckPathExists = true,
                 FileName = "events.bin",
             };
@@ -84,6 +84,20 @@ namespace Calendar
             }
 
             this.Close();
+        }
+
+        private void txtColor_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            ColorPicker form = new ColorPicker();
+            {
+                Activate();
+            }
+            form.Owner = this;
+            form.ShowDialog();
+            if (form.PickedColor != null)
+            {
+                this.txtColor.Text = form.PickedColor;
+            }
         }
     }
 }

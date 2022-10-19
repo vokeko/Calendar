@@ -98,6 +98,7 @@ namespace Calendar
             }
             form.Owner = this;
             form.ShowDialog();
+            Refresh_Localization(CultureInfo.CurrentCulture);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
