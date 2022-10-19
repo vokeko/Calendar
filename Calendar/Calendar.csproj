@@ -187,5 +187,8 @@
   <ItemGroup>
     <Resource Include="Resources\settings.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\paintbrush.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
