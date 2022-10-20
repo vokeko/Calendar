@@ -151,6 +151,15 @@ namespace Calendar.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Color picker.
+        /// </summary>
+        public static string Colorpicker {
+            get {
+                return ResourceManager.GetString("Colorpicker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Confirm.
         /// </summary>
         public static string Confirm {

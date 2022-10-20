@@ -147,6 +147,9 @@
   <data name="Color" xml:space="preserve">
     <value>Barva</value>
   </data>
+  <data name="Colorpicker" xml:space="preserve">
+    <value>Výběr barvy</value>
+  </data>
   <data name="Confirm" xml:space="preserve">
     <value>Potvrdit</value>
   </data>

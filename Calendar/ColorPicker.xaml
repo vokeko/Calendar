@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Calendar"
         xmlns:resources="clr-namespace:Calendar.Resources.Localization"
         mc:Ignorable="d"
-        Title="ColorPicker" Height="330" Width="300" MinHeight="330" MinWidth="300" WindowStartupLocation="CenterOwner" Icon="Resources/paintbrush.ico">
+        Title="{x:Static resources:Strings.Colorpicker}" Height="330" Width="300" MinHeight="330" MinWidth="300" WindowStartupLocation="CenterOwner" Icon="Resources/paintbrush.ico">
     <Window.Resources>
         <Color x:Key="CurrentColor">#FF00FF</Color>
 

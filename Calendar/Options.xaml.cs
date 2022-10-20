@@ -37,7 +37,8 @@ namespace Calendar
             cmbLanguage.DisplayMemberPath = "DisplayName";
             cmbLanguage.SelectedItem = CultureInfo.CurrentCulture;
 
-            txtColor.Text = EventList.HighlightBrush.ToString().Substring(2);
+            txtColor.Text = EventList.HighlightBrush.Color.ToString().Remove(1, 2);
+            if (EventList.BackupFreq != EventList.BackupFrequency.None) txtBackupPath.Text = EventList.BackupPath;
         }
 
         private void BtnLoad_Click(object sender, RoutedEventArgs e)

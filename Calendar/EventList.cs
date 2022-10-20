@@ -16,7 +16,7 @@ namespace Calendar
     {
         public static List<Event> Events { get; private set; } = new List<Event>();
         internal static SolidColorBrush HighlightBrush { get; private set; } = Brushes.Pink;
-        private static string BackupPath { get; set; } = null;
+        internal static string BackupPath { get; private set; } = null;
         internal static BackupFrequency BackupFreq { get; private set; } = BackupFrequency.None;
         private static DateTime LastBackup { get; set; } = default;
 
