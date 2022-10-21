@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
+using Calendar.Resources.Localization;
 
 namespace Calendar
 {
@@ -36,7 +37,7 @@ namespace Calendar
             {
                 NewEvent form = new NewEvent(null);
                 {
-                    Title = "Nová událost";
+                    Title = Strings.NewEvent;
                     Activate();
                 }
                 form.Owner = this;
@@ -48,7 +49,7 @@ namespace Calendar
                 RefreshEvents();
             }
             else
-                MessageBox.Show("Prosím vyberte datum");
+                MessageBox.Show(Strings.PickDate);
         }
         private void BtnRemove_Click(object sender, RoutedEventArgs e)
         {
@@ -58,7 +59,7 @@ namespace Calendar
                 RefreshEvents();
             }
             else
-                MessageBox.Show("Prosím vyberte položku");
+                MessageBox.Show(Strings.PickItem);
         }
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
@@ -66,18 +67,18 @@ namespace Calendar
             {
                 NewEvent form = new NewEvent(chosenEvent);
                 {
-                    Title = "Edit události";
+                    Title = Strings.EditItem;
                     Activate();
                 }
                 form.Owner = this;
 
                 if (!form.ShowDialog().GetValueOrDefault()) return;
 
-                MessageBox.Show("Událost úspěšně upravena");
+                MessageBox.Show(Strings.SuccessfulEdit);
                 RefreshEvents();
             }
             else
-                MessageBox.Show("Prosím vyberte položku");
+                MessageBox.Show(Strings.PickItem);
         }
         private void LstChosenDate_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {

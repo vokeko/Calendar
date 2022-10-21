@@ -255,6 +255,12 @@
   <data name="OlderThanToday" xml:space="preserve">
     <value>Chosen date can't be greater than today</value>
   </data>
+  <data name="PickDate" xml:space="preserve">
+    <value>Please pick a date</value>
+  </data>
+  <data name="PickItem" xml:space="preserve">
+    <value>Please pick an item</value>
+  </data>
   <data name="Quarterly" xml:space="preserve">
     <value>Quarterly</value>
   </data>

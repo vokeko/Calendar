@@ -22,9 +22,11 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
                     <Label Content="{x:Static resources:Strings.Highlight}" Grid.Column="0" />
                     <TextBox Grid.Column="1" MaxLength="7" Text="#" VerticalAlignment="Center" x:Name="txtColor" PreviewMouseDown="txtColor_PreviewMouseDown" Cursor="Hand" IsReadOnly="True"/>
+                    <Rectangle x:Name="rcColorShow" Grid.Column="2" Margin="5" Width="18" Height="18" Stroke="Black" StrokeThickness="1" PreviewMouseDown="txtColor_PreviewMouseDown" Cursor="Hand"/>
                 </Grid>
             </TabItem>
             <TabItem Header="{x:Static resources:Strings.Localization}">

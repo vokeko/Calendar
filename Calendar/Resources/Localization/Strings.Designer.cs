@@ -475,6 +475,24 @@ namespace Calendar.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please pick a date.
+        /// </summary>
+        public static string PickDate {
+            get {
+                return ResourceManager.GetString("PickDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please pick an item.
+        /// </summary>
+        public static string PickItem {
+            get {
+                return ResourceManager.GetString("PickItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Quarterly.
         /// </summary>
         public static string Quarterly {

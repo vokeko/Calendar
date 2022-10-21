@@ -60,7 +60,10 @@
             <Rectangle Fill="{StaticResource LevelSaturationBrush}" Width="200" Height="200" Margin="10" Stroke="Black" StrokeThickness="1" SnapsToDevicePixels="True" Cursor="Pen" MouseDown="Saturation_MouseDown"/>
             <Rectangle x:Name="Pokus" Fill="{StaticResource HueBrush}" Width="20" Height="200" Margin="10" Stroke="Black" StrokeThickness="1" SnapsToDevicePixels="True" Cursor="Pen" MouseDown="Hue_MouseDown" />
         </StackPanel>
-        <TextBox x:Name="txtColor" Grid.Row="1" Width="150" Text="#FF00FF" TextAlignment="Center"/>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Rectangle x:Name="rcColorShow" Width="20" Height="20" Margin="10,0,10,0" StrokeThickness="1" Stroke="Black"/>
+            <TextBox x:Name="txtColor"  Width="165" Text="#FF00FF" TextAlignment="Center" Margin="5"/>
+        </StackPanel>
         <Button Grid.Row="4" Width="150" Content="{x:Static resources:Strings.Confirm}" Click="Button_Click"/>
     </Grid>
 </Window>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Collections.Generic;
 using System.Globalization;
 using Microsoft.Win32;
@@ -39,6 +40,8 @@ namespace Calendar
 
             txtColor.Text = EventList.HighlightBrush.Color.ToString().Remove(1, 2);
             if (EventList.BackupFreq != EventList.BackupFrequency.None) txtBackupPath.Text = EventList.BackupPath;
+
+            rcColorShow.Fill = EventList.HighlightBrush;
         }
 
         private void BtnLoad_Click(object sender, RoutedEventArgs e)
@@ -98,6 +101,10 @@ namespace Calendar
             if (form.PickedColor != null)
             {
                 this.txtColor.Text = form.PickedColor;
+                if (form.PickedColor.IsValidHexCode())
+                {
+                    rcColorShow.Fill = (SolidColorBrush)new BrushConverter().ConvertFrom(form.PickedColor);
+                }
             }
         }
     }
