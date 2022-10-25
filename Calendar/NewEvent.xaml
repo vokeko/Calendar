@@ -27,7 +27,7 @@
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <Label Grid.Row="0" Grid.Column="0" Content="{x:Static resources:Strings.Title}"/>
-                <TextBox Grid.Row="0" Grid.Column="1" x:Name="txtName" Text="Nová událost" VerticalContentAlignment="Center" Margin="0,2" Grid.ColumnSpan="2"/>
+                <TextBox Grid.Row="0" Grid.Column="1" x:Name="txtName" Text="{x:Static resources:Strings.NewEvent}" VerticalContentAlignment="Center" Margin="0,2" Grid.ColumnSpan="2"/>
 
                 <Label Grid.Row="1" Grid.Column="0" Content="{x:Static resources:Strings.Date}"/>
                 <DatePicker Grid.Row="1" Grid.Column="1" x:Name="dtPicker" VerticalContentAlignment="Center" Margin="0,2" Grid.ColumnSpan="2">

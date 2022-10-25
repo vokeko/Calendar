@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:resources="clr-namespace:Calendar.Resources.Localization"
         mc:Ignorable="d"
-        Title="{x:Static resources:Strings.EventView}" Height="180" Width="220" MinHeight="180" MinWidth="180" Icon="Resources\view.ico" WindowStartupLocation="CenterOwner">
+        Title="{x:Static resources:Strings.EventView}" Height="180" Width="250" MinHeight="180" MinWidth="200" Icon="Resources\view.ico" WindowStartupLocation="CenterOwner">
     <GroupBox Grid.Row="1" Header="{x:Static resources:Strings.Event}">
         <Grid Margin="5">
             <Grid.RowDefinitions>
